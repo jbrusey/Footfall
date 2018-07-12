@@ -11,7 +11,7 @@ void CsvManager::setup(string saveFolder)
 	cout << "Setting Up CSV Manager";
 	_saveFolder = saveFolder;
 	ofDirectory csvDirectory(ofToDataPath(_saveFolder));
-	
+
 	if (!csvDirectory.exists())
 	{
 		csvDirectory.createDirectory(_saveFolder);
@@ -30,8 +30,8 @@ void CsvManager::addRecord(string count, string timestamp)
 //--------------------------------------------------------------
 void CsvManager::saveRecords()
 {
-	logFile.createFile(ofToDataPath(_saveFolder+"/"+ofGetTimestampString("%Y-%m-%d-%H-%M")+".csv"));
-	
+	logFile.createFile(ofToDataPath(_saveFolder+"/"+ofGetTimestampString("%Y-%m-%d")+".csv"));
+
 	for (int i = 0; i < loggedData.size(); i++)
 	{
 		ofxCsvRow row;
@@ -39,7 +39,8 @@ void CsvManager::saveRecords()
 		row.setString(1, loggedData[i]._timestamp);
 		logFile.addRow(row);
 	}
-	logFile.save(ofToDataPath(_saveFolder+"/"+ofGetTimestampString("%Y-%m-%d-%H-%M")+".csv"));
+	logFile.save(ofToDataPath(_saveFolder+"/"+ofGetTimestampString("%Y-%m-%d")+".csv"));
+	loggedData.clear();
 }
 //--------------------------------------------------------------
 void CsvManager::close()
