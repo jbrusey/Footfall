@@ -23,7 +23,7 @@ void ofApp::setup()
 	cameraManager.setup(configManager.getConfiguration().cameraConfig);
 	trackingManager.setup(configManager.getConfiguration().trackingConfig);
 
-	if (_logToServer) mqttManager.setup(configManager.getConfiguration().MqttConfig);
+	if (_logToServer) mqttManager.setup(configManager.getConfiguration().mqttConfig);
 	if (_logToCsv) csvManager.setup("csvlogs");
 
 	ofAddListener(trackingManager.blobIn, this, &ofApp::blobIn);
