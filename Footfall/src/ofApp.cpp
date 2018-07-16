@@ -91,7 +91,7 @@ void ofApp::blobOut(int &val)
 	peopleOut += abs(val);
 	cout << val << " Blob(s) Went Out" << endl;
 
-	if (_logToServer) mqttManager.post(ofToString(val));
+	if (_logToServer) mqttManager.publish(ofToString(val));
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
 	if (_logToCsv) csvManager.close();
 
