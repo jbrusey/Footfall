@@ -24,14 +24,14 @@ void MqttManager::publish(std::string message)
 
   char hostname[HOST_NAME_MAX];
   gethostname(hostname, HOST_NAME_MAX);
-  
+
   string sep = ",";
-  string message = ofToString(time(0)) + sep +
+  string csv = ofToString(time(0)) + sep +
                    hostname + sep +
                    message + sep +
                    ofToString(_Sequence);
 
-  MQTT.publish("Street/1/pedestrians", message, _QoS, false);
+  MQTT.publish("Street/1/pedestrians", csv, _QoS, false);
   MQTT.update();
 }
 
