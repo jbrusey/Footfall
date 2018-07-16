@@ -71,12 +71,12 @@ void ConfigurationManager::loadConfiguration(string file)
 		config.trackingConfig.cameraheight = config.cameraConfig.cameraheight;
 
 		// Post Data Settings
-		config.MQTTConfig.server = configFile["Footfall"]["MQTTConfig"]["server"].asString();
-		config.MQTTConfig.username = configFile["Footfall"]["MQTTConfig"]["username"].asString();
-		config.MQTTConfig.password = configFile["Footfall"]["MQTTConfig"]["password"].asString();
-		config.MQTTConfig.id = configFile["Footfall"]["MQTTConfig"]["id"].asString();
-		config.MQTTConfig.port = configFile["Footfall"]["MQTTConfig"]["port"].asInt();
-		config.MQTTConfig.QoS = configFile["Footfall"]["MQTTConfig"]["qos"].asInt();
+		config.mqttConfig.server = configFile["Footfall"]["MQTTConfig"]["server"].asString();
+		config.mqttConfig.username = configFile["Footfall"]["MQTTConfig"]["username"].asString();
+		config.mqttConfig.password = configFile["Footfall"]["MQTTConfig"]["password"].asString();
+		config.mqttConfig.id = configFile["Footfall"]["MQTTConfig"]["id"].asString();
+		config.mqttConfig.port = configFile["Footfall"]["MQTTConfig"]["port"].asInt();
+		config.mqttConfig.QoS = configFile["Footfall"]["MQTTConfig"]["qos"].asInt();
 	}
 }
 
