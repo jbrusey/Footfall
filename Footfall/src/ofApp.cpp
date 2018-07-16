@@ -31,7 +31,7 @@ void ofApp::setup()
 
 	MQTT.begin("help-data.coventry.ac.uk", 1883);
   if (MQTT.connect("arduino", "HELP", "pervasive")) cout << "Connected!";
-	else cout << "Couldn't connect :("
+	else cout << "Couldn't connect :(";
 }
 //--------------------------------------------------------------
 void ofApp::exit()
