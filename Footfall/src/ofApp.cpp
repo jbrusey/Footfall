@@ -29,7 +29,6 @@ void ofApp::setup()
 	ofAddListener(trackingManager.blobIn, this, &ofApp::blobIn);
 	ofAddListener(trackingManager.blobOut, this, &ofApp::blobOut);
 
-	ofxMQTT MQTT;
 	MQTT.begin("help-data.coventry.ac.uk", 1883);
   MQTT.connect("arduino", "HELP", "pervasive");
 }
