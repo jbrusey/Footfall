@@ -81,6 +81,13 @@ void ofApp::blobIn(int &val)
 	if (_logToServer) httpManager.post(ofToString(val));
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
 	if (_logToCsv) csvManager.close();
+
+	ofxMQTT MQTT;
+	MQTT.begin("help-data.coventry.ac.uk", 1883);
+  MQTT.connect("arduino", "HELP", "pervasive");
+	void publish(string "Street/1/pedestrians", val, int qos = 2, retain = false);
+	MQTT.disconnect();
+
 	system("echo 0 >/sys/class/leds/led0/brightness");
 }
 //--------------------------------------------------------------

@@ -4,3 +4,4 @@ ofxCv
 ofxOpenCv
 ofxHttpUtils
 ofxCvPiCam
+ofxMQTT

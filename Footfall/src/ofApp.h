@@ -12,6 +12,8 @@
 #include "TrackingManager.h"
 #include "HTTPManager.h"
 #include "CsvManager.h"
+#include "ofxMQTT.h"
+
 
 class ofApp : public ofBaseApp
 {
@@ -23,16 +25,16 @@ class ofApp : public ofBaseApp
 
 		void keyPressed(int key);
 		void keyReleased(int key);
-		
+
 		ConfigurationManager configManager;
 		CameraManager cameraManager;
 		TrackingManager trackingManager;
 		HTTPManager httpManager;
 		CsvManager csvManager;
-	
+
 		void blobIn(int &val);
 		void blobOut(int &val);
-	
+
 		bool _logToCsv;
 		bool _logToServer;
 		int peopleIn;
