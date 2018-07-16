@@ -85,7 +85,7 @@ void ofApp::blobIn(int &val)
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
 	if (_logToCsv) csvManager.close();
 
-	if (MQTT.connected) cout << "MQTT connected";
+	if (MQTT.connected()) cout << "MQTT connected";
 	else cout << "MQTT not connected";
 	MQTT.publish("Street/1/pedestrians", "test", 2, false);
 
