@@ -28,6 +28,10 @@ void ofApp::setup()
 
 	ofAddListener(trackingManager.blobIn, this, &ofApp::blobIn);
 	ofAddListener(trackingManager.blobOut, this, &ofApp::blobOut);
+
+	ofxMQTT MQTT;
+	MQTT.begin("help-data.coventry.ac.uk", 1883);
+  MQTT.connect("arduino", "HELP", "pervasive");
 }
 //--------------------------------------------------------------
 void ofApp::exit()
@@ -82,11 +86,7 @@ void ofApp::blobIn(int &val)
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
 	if (_logToCsv) csvManager.close();
 
-	ofxMQTT MQTT;
-	MQTT.begin("help-data.coventry.ac.uk", 1883);
-  MQTT.connect("arduino", "HELP", "pervasive");
-	MQTT.publish("Street/1/pedestrians", val, 2, false);
-	MQTT.disconnect();
+	MQTT.publish("Street/1/pedestrians", "test", 2, false);
 
 	system("echo 0 >/sys/class/leds/led0/brightness");
 }
