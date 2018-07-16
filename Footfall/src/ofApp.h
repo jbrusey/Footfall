@@ -11,8 +11,7 @@
 #include "CameraManager.h"
 #include "TrackingManager.h"
 #include "CsvManager.h"
-#include "MQTTManager.css"
-#include "ofxMQTT.h"
+#include "MqttManager.h"
 
 
 class ofApp : public ofBaseApp
