@@ -19,7 +19,7 @@ void MqttManager::setup(MQTT_Configuration _mqttConfig)
 void MqttManager::publish(std::string message)
 {
   MQTT.update();
-  MQTT.publish("Street/1/pedestrians", message, _QoS, false);
+  MQTT.publish("Street/1/pedestrians", ofToString(time(0)) + "," + message, _QoS, false);
   MQTT.update();
 }
 
