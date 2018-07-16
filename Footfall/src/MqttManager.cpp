@@ -13,7 +13,7 @@ void MqttManager::setup(MQTT_Configuration _mqttConfig)
 
 	MQTT.update();
 
-  int _QoS = _mqttConfig.QoS;
+  _QoS = _mqttConfig.QoS;
 }
 
 void MqttManager::publish(std::string message)
