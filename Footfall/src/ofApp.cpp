@@ -85,7 +85,7 @@ void ofApp::blobIn(int &val)
 	ofxMQTT MQTT;
 	MQTT.begin("help-data.coventry.ac.uk", 1883);
   MQTT.connect("arduino", "HELP", "pervasive");
-	MQTT.publish("Street/1/pedestrians", val, int qos = 2, retain = false);
+	MQTT.publish("Street/1/pedestrians", val, 2, false);
 	MQTT.disconnect();
 
 	system("echo 0 >/sys/class/leds/led0/brightness");
