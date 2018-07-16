@@ -30,8 +30,8 @@ void ofApp::setup()
 	ofAddListener(trackingManager.blobOut, this, &ofApp::blobOut);
 
 	MQTT.begin("help-data.coventry.ac.uk", 1883);
-  if (MQTT.connect("arduino", "HELP", "pervasive")) cout << "Connected!";
-	else cout << "Couldn't connect :(";
+  if (MQTT.connect("arduino", "HELP", "pervasive")) cout << "Connected!"; << endl;
+	else cout << "Couldn't connect :(" << endl;
 }
 //--------------------------------------------------------------
 void ofApp::exit()
@@ -86,8 +86,8 @@ void ofApp::blobIn(int &val)
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
 	if (_logToCsv) csvManager.close();
 
-	if (MQTT.connected()) cout << "MQTT connected";
-	else cout << "MQTT not connected";
+	if (MQTT.connected()) cout << "MQTT connected" << endl;
+	else cout << "MQTT not connected" << endl;
 	MQTT.publish("Street/1/pedestrians", "test", 2, false);
 
 	system("echo 0 >/sys/class/leds/led0/brightness");
