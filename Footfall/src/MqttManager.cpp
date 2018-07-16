@@ -12,12 +12,14 @@ void MqttManager::setup(MQTT_Configuration _mqttConfig)
     cout << "Couldn't connect to MQTT!" << endl;
 
 	MQTT.update();
+
+  _QoS = _mqttConfig.QoS;
 }
 
 void MqttManager::publish(std::string message)
 {
   MQTT.update();
-  MQTT.publish("Street/1/pedestrians", message, _mqttConfig.QoS, false);
+  MQTT.publish("Street/1/pedestrians", message, _QoS, false);
   MQTT.update();
 }
 

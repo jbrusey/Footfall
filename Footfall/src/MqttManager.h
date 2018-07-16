@@ -16,6 +16,10 @@ class MqttManager
 
 		//! Close the MQTT Manager
 		void close();
+
+	private:
+    ofxMQTT MQTT;
+		string _QoS;
 };
 
 #endif /* CsvManager_h */
