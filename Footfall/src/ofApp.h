@@ -29,7 +29,8 @@ class ofApp : public ofBaseApp
 		CameraManager cameraManager;
 		TrackingManager trackingManager;
 		CsvManager csvManager;
-		ofxMQTT MQTT;
+		MqttManager mqttManager;
+		
 
 		void blobIn(int &val);
 		void blobOut(int &val);
