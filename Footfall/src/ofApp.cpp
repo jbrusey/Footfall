@@ -30,10 +30,10 @@ void ofApp::setup()
 	ofAddListener(trackingManager.blobIn, this, &ofApp::blobIn);
 	ofAddListener(trackingManager.blobOut, this, &ofApp::blobOut);
 
-	MQTT.update();
 	MQTT.begin("help-data.coventry.ac.uk", 1883);
   if (MQTT.connect("arduino", "HELP", "pervasive")) cout << "Connected!" << endl;
 	else cout << "Couldn't connect :(" << endl;
+	MQTT.update();
 }
 //--------------------------------------------------------------
 void ofApp::exit()
@@ -86,6 +86,7 @@ void ofApp::blobIn(int &val)
 
 	MQTT.update();
 	MQTT.publish("Street/1/pedestrians", std::to_string(val), 2, false);
+	MQTT.update();
 
 	if (_logToServer) httpManager.post(ofToString(val));
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
@@ -104,7 +105,8 @@ void ofApp::blobOut(int &val)
 
   MQTT.update();
 	MQTT.publish("Street/1/pedestrians", std::to_string(val), 2, false);
-
+	MQTT.update();
+	
 	if (_logToServer) httpManager.post(ofToString(val));
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
 	if (_logToCsv) csvManager.close();
