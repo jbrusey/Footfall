@@ -30,7 +30,8 @@ void ofApp::setup()
 	ofAddListener(trackingManager.blobOut, this, &ofApp::blobOut);
 
 	MQTT.begin("help-data.coventry.ac.uk", 1883);
-  MQTT.connect("arduino", "HELP", "pervasive");
+  if (MQTT.connect("arduino", "HELP", "pervasive")) cout << "Connected!";
+	else cout << "Couldn't connect :("
 }
 //--------------------------------------------------------------
 void ofApp::exit()
