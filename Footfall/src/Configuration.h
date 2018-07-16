@@ -60,6 +60,7 @@ struct MQTT_Configuration
 	string password;
 	string id;
 	int port;
+	int QoS;
 };
 
 struct Configuration
