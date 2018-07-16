@@ -31,6 +31,7 @@ class ofApp : public ofBaseApp
 		TrackingManager trackingManager;
 		HTTPManager httpManager;
 		CsvManager csvManager;
+		ofxMQTT MQTT;
 
 		void blobIn(int &val);
 		void blobOut(int &val);
