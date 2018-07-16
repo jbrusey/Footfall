@@ -1,4 +1,5 @@
 #include "MqttManager.h"
+#include <unistd.h>
 //--------------------------------------------------------------
 void MqttManager::setup(MQTT_Configuration _mqttConfig)
 {
@@ -14,12 +15,23 @@ void MqttManager::setup(MQTT_Configuration _mqttConfig)
 	MQTT.update();
 
   _QoS = _mqttConfig.QoS;
+  _Sequence = 0;
 }
 
 void MqttManager::publish(std::string message)
 {
   MQTT.update();
-  MQTT.publish("Street/1/pedestrians", ofToString(time(0)) + "," + message, _QoS, false);
+
+  char hostname[HOST_NAME_MAX];
+  gethostname(hostname, HOST_NAME_MAX);
+  
+  string sep = ",";
+  string message = ofToString(time(0)) + sep +
+                   hostname + sep +
+                   message + sep +
+                   ofToString(_Sequence);
+
+  MQTT.publish("Street/1/pedestrians", message, _QoS, false);
   MQTT.update();
 }
 
