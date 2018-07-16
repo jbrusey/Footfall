@@ -88,7 +88,9 @@ void ofApp::blobIn(int &val)
 
 	if (MQTT.connected()) cout << "MQTT connected" << endl;
 	else cout << "MQTT not connected" << endl;
+	MQTT.update();
 	MQTT.publish("Street/1/pedestrians", "test", 2, false);
+	MQTT.update();
 
 	system("echo 0 >/sys/class/leds/led0/brightness");
 }
