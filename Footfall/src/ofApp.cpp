@@ -6,7 +6,6 @@
 
 
 #include "ofApp.h"
-#include <string>
 
 //--------------------------------------------------------------
 void ofApp::setup()
@@ -19,26 +18,21 @@ void ofApp::setup()
 	configManager.loadConfiguration("config.json");
 
 	_logToCsv = configManager.getConfiguration().useCsvLogging;
-	_logToServer = configManager.getConfiguration().useHttp;
+	_logToServer = configManager.getConfiguration().useMQTT;
 
 	cameraManager.setup(configManager.getConfiguration().cameraConfig);
 	trackingManager.setup(configManager.getConfiguration().trackingConfig);
 
-	if (_logToServer) httpManager.setup(configManager.getConfiguration().httpConfig);
+	if (_logToServer) mqttManager.setup(configManager.getConfiguration().MQTTConfig);
 	if (_logToCsv) csvManager.setup("csvlogs");
 
 	ofAddListener(trackingManager.blobIn, this, &ofApp::blobIn);
 	ofAddListener(trackingManager.blobOut, this, &ofApp::blobOut);
-
-	MQTT.begin("help-data.coventry.ac.uk", 1883);
-  if (MQTT.connect("arduino", "HELP", "pervasive")) cout << "Connected!" << endl;
-	else cout << "Couldn't connect :(" << endl;
-	MQTT.update();
 }
 //--------------------------------------------------------------
 void ofApp::exit()
 {
-	if (_logToServer) httpManager.close();
+	if (_logToServer) mqttManager.close();
 	if (_logToCsv) csvManager.close();
 
 	ofRemoveListener(trackingManager.blobIn, this, &ofApp::blobIn);
@@ -84,14 +78,9 @@ void ofApp::blobIn(int &val)
 	peopleIn += val;
 	cout << val << " Blob(s) Came In" << endl;
 
-	MQTT.update();
-	MQTT.publish("Street/1/pedestrians", std::to_string(val), 2, false);
-
-	if (_logToServer) httpManager.post(ofToString(val));
+	if (_logToServer) mqttManager.publish(ofToString(val));
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
 	if (_logToCsv) csvManager.close();
-
-
 
 	system("echo 0 >/sys/class/leds/led0/brightness");
 }
@@ -102,11 +91,9 @@ void ofApp::blobOut(int &val)
 	peopleOut += abs(val);
 	cout << val << " Blob(s) Went Out" << endl;
 
-	MQTT.update();
-	MQTT.publish("Street/1/pedestrians", std::to_string(val), 2, false);
-
-	if (_logToServer) httpManager.post(ofToString(val));
+	if (_logToServer) mqttManager.post(ofToString(val));
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
 	if (_logToCsv) csvManager.close();
+
 	system("echo 0 >/sys/class/leds/led0/brightness");
 }

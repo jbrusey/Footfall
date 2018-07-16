@@ -22,27 +22,27 @@ class TrackingManager
 	public:
 		//! Setup the tracker
 		void setup(Tracking_Configuration _trackingConfig);
-	
+
 		//! Pass the Camera image into the tracker
 		void update(Mat processedMat);
-	
+
 		//! Draw the Tracker
 		void draw();
-	
+
 		//! Close the Tracker
 		void close();
-	
+
 		ofEvent<int> blobIn;
 		ofEvent<int> blobOut;
-	
+
 	private:
 		ofxCv::ContourFinder contourFinder;
 		ofxCv::RectTrackerFollower<Blob> tracker;
 		ofRectangle centerRect;
-	
+
 		TrackingHistory trackingHistory;
 		bool _flipVertically;
-	
+
 		int _oneBlob;
 		int _twoBlob;
 		int _threeBlob;

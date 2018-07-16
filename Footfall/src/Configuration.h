@@ -17,15 +17,15 @@ struct Camera_Configuration
 	int dilateAmount;
 	int erodeAmount;
 	int blur;
-	
+
 	float shadowPixelRatio;
-	
+
 	bool bTrackShadows;
 	bool bFlipH;
 	bool bFlipV;
 	bool bUseMask;
 	bool bShowShadowImage;
-	
+
 	vector<ofPoint> maskCoord;
 };
 
@@ -35,7 +35,7 @@ struct Tracking_Configuration
 	int threshold;
 	int minarea;
 	int maxarea;
-	
+
 	float blobdyingtime;
 	int persistance;
 	int maxdistance;
@@ -43,33 +43,32 @@ struct Tracking_Configuration
 	int minsizetwo;
 	int minsizethree;
 	int history;
-	
+
 	ofPoint startPos;
 	ofPoint endPos;
 	int camerawidth;
 	int cameraheight;
-	
+
 	bool flipvertically;
 	int offset;
 };
 
-struct HTTP_Configuration
+struct MQTT_Configuration
 {
+	string server;
+	string username;
+	string password;
+	string id;
 	int port;
-	string postserver;
-	string postextension;
-	string secretkey;
-	int maxretries;
-	bool keepbackups;
 };
 
 struct Configuration
 {
-	bool useHttp;
+	bool useMQTT;
 	bool useCsvLogging;
 	Camera_Configuration cameraConfig;
 	Tracking_Configuration trackingConfig;
-	HTTP_Configuration httpConfig;
+	MQTT_Configuration mqttConfig;
 };
 
 struct Post_Data
@@ -79,7 +78,7 @@ struct Post_Data
 		_count = count;
 		_timestamp = timestamp;
 	}
-	
+
 	string _count;
 	string _timestamp;
 };

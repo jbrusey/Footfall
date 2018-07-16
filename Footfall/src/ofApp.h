@@ -10,8 +10,8 @@
 #include "ConfigurationManager.h"
 #include "CameraManager.h"
 #include "TrackingManager.h"
-#include "HTTPManager.h"
 #include "CsvManager.h"
+#include "MQTTManager.css"
 #include "ofxMQTT.h"
 
 
@@ -29,7 +29,6 @@ class ofApp : public ofBaseApp
 		ConfigurationManager configManager;
 		CameraManager cameraManager;
 		TrackingManager trackingManager;
-		HTTPManager httpManager;
 		CsvManager csvManager;
 		ofxMQTT MQTT;
 

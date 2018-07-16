@@ -5,8 +5,8 @@
 			"usecsvlogging": false
 		},
 		"CameraConfig": {
-			"camerawidth":160,
-			"cameraheight":120,
+			"camerawidth":320,
+			"cameraheight":240,
 			"fliphorizontally": false,
 			"flipvertically": false,
 			"trackshadows": true,
@@ -16,19 +16,19 @@
 			"dilate": 5,
 			"erode": 3,
 			"history": 100,
-			"blur": 5,
+			"blur": 10,
 			"usemask": false,
 			"showshadowimage": true,
 			"MaskArea":
 			[
 			 {"coordx":0,"coordy":0},
-			 {"coordx":160,"coordy":0},
-			 {"coordx":160,"coordy":120},
-			 {"coordx":0,"coordy":120}
+			 {"coordx":320,"coordy":0},
+			 {"coordx":320,"coordy":240},
+			 {"coordx":0,"coordy":240}
 			 ]
 		},
 		"TrackingConfig": {
-			"threshold":10,
+			"threshold":20,
 			"minarea":10,
 			"maxarea":90,
 			"flipvertically":false,
@@ -39,15 +39,16 @@
 			"persistance":1,
 			"maxdistance":100,
 			"minsizeone": 10,
-			"minsizetwo": 50,
-			"minsizethree": 100
+			"minsizetwo": 500,
+			"minsizethree": 1000
 		},
-		"HttpConfig": {
-			"keepbackups" : false,
-			"postserver":"",
-			"postextension":"",
-			"secretkey":"",
-			"maxretries":1
+		"MQTTConfig": {
+			"server" : "help-data.coventry.ac.uk",
+			"username":"",
+			"password":"",
+			"id":"arduino",
+			"port":1883,
+			"qos":2
 		}
 	}
 }

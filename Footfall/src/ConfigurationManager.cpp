@@ -17,24 +17,24 @@ void ConfigurationManager::loadConfiguration(string file)
 	else
 	{
 		cout << " - Configuration File Found!" << endl;
-		
+
 		// App Settings
-		config.useHttp = configFile["Footfall"]["AppConfig"]["usehttp"].asBool();
+		config.useMQTT = configFile["Footfall"]["AppConfig"]["usemqtt"].asBool();
 		config.useCsvLogging = configFile["Footfall"]["AppConfig"]["usecsvlogging"].asBool();
-		
+
 		config.cameraConfig.camerawidth = configFile["Footfall"]["CameraConfig"]["camerawidth"].asInt();
 		config.cameraConfig.cameraheight = configFile["Footfall"]["CameraConfig"]["cameraheight"].asInt();
-	
+
 		config.cameraConfig.dilateAmount = configFile["Footfall"]["CameraConfig"]["dilate"].asInt();
 		config.cameraConfig.erodeAmount = configFile["Footfall"]["CameraConfig"]["erode"].asInt();
 		config.cameraConfig.blur = configFile["Footfall"]["CameraConfig"]["blur"].asInt();
 		config.cameraConfig.threshold = configFile["Footfall"]["CameraConfig"]["threshold"].asInt();
-		
+
 		config.cameraConfig.mogThreshold = configFile["Footfall"]["CameraConfig"]["mogthreshold"].asInt();
 		config.cameraConfig.history = configFile["Footfall"]["CameraConfig"]["history"].asInt();
 		config.cameraConfig.bTrackShadows = configFile["Footfall"]["CameraConfig"]["trackshadows"].asInt();
 		config.cameraConfig.shadowPixelRatio = configFile["Footfall"]["CameraConfig"]["shadowPixelRatio"].asFloat();
-		
+
 		config.cameraConfig.bFlipH = configFile["Footfall"]["CameraConfig"]["fliphorizontally"].asBool();
 		config.cameraConfig.bFlipV = configFile["Footfall"]["CameraConfig"]["flipveritcally"].asBool();
 		config.cameraConfig.bUseMask = configFile["Footfall"]["CameraConfig"]["usemask"].asBool();
@@ -47,7 +47,7 @@ void ConfigurationManager::loadConfiguration(string file)
 			pts.push_back(pt);
 		}
 		config.cameraConfig.maskCoord = pts;
-		
+
 		// Tracking Configuration
 		config.trackingConfig.threshold = configFile["Footfall"]["TrackingConfig"]["threshold"].asInt();
 		config.trackingConfig.minarea = configFile["Footfall"]["TrackingConfig"]["minarea"].asInt();
@@ -55,27 +55,28 @@ void ConfigurationManager::loadConfiguration(string file)
 		config.trackingConfig.startPos = ofPoint(configFile["Footfall"]["TrackingConfig"]["startposx"].asInt(),configFile["Footfall"]["TrackingConfig"]["startposy"].asInt());
 		config.trackingConfig.offset = configFile["Footfall"]["TrackingConfig"]["offset"].asInt();
 		config.trackingConfig.flipvertically = configFile["Footfall"]["TrackingConfig"]["flipvertically"].asBool();
-		
+
 		config.trackingConfig.persistance = configFile["Footfall"]["TrackingConfig"]["persistance"].asInt();
-		
+
 		config.trackingConfig.history = config.cameraConfig.history;
-		
+
 		config.trackingConfig.blobdyingtime = configFile["Footfall"]["TrackingConfig"]["blobdyingtime"].asFloat();
-		
+
 		config.trackingConfig.minsizeone = configFile["Footfall"]["TrackingConfig"]["minsizeone"].asInt();
 		config.trackingConfig.minsizetwo = configFile["Footfall"]["TrackingConfig"]["minsizetwo"].asInt();
 		config.trackingConfig.minsizethree = configFile["Footfall"]["TrackingConfig"]["minsizethree"].asInt();
 		config.trackingConfig.maxdistance = configFile["Footfall"]["TrackingConfig"]["maxdistance"].asInt();
-		
+
 		config.trackingConfig.camerawidth = config.cameraConfig.camerawidth;
 		config.trackingConfig.cameraheight = config.cameraConfig.cameraheight;
 
 		// Post Data Settings
-		config.httpConfig.postserver = configFile["Footfall"]["HttpConfig"]["postserver"].asString();
-		config.httpConfig.postextension = configFile["Footfall"]["HttpConfig"]["postextension"].asString();
-		config.httpConfig.secretkey = configFile["Footfall"]["HttpConfig"]["secretkey"].asString();
-		config.httpConfig.maxretries = configFile["Footfall"]["HttpConfig"]["maxretries"].asInt();
-		config.httpConfig.keepbackups = configFile["Footfall"]["HttpConfig"]["keepbackups"].asBool();
+		config.MQTTConfig.server = configFile["Footfall"]["MQTTConfig"]["server"].asString();
+		config.MQTTConfig.username = configFile["Footfall"]["MQTTConfig"]["username"].asString();
+		config.MQTTConfig.password = configFile["Footfall"]["MQTTConfig"]["password"].asString();
+		config.MQTTConfig.id = configFile["Footfall"]["MQTTConfig"]["id"].asString();
+		config.MQTTConfig.port = configFile["Footfall"]["MQTTConfig"]["port"].asInt();
+		config.MQTTConfig.QoS = configFile["Footfall"]["MQTTConfig"]["qos"].asInt();
 	}
 }
 
