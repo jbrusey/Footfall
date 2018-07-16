@@ -84,8 +84,8 @@ void ofApp::blobIn(int &val)
 	peopleIn += val;
 	cout << val << " Blob(s) Came In" << endl;
 
-	MQTT.publish("Street/1/pedestrians", std::to_string(val), 2, false);
 	MQTT.update();
+	MQTT.publish("Street/1/pedestrians", std::to_string(val), 2, false);
 
 	if (_logToServer) httpManager.post(ofToString(val));
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
@@ -102,8 +102,8 @@ void ofApp::blobOut(int &val)
 	peopleOut += abs(val);
 	cout << val << " Blob(s) Went Out" << endl;
 
+  MQTT.update();
 	MQTT.publish("Street/1/pedestrians", std::to_string(val), 2, false);
-	MQTT.update();
 
 	if (_logToServer) httpManager.post(ofToString(val));
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
