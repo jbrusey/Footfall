@@ -53,6 +53,7 @@ class CameraManager
 		BackgroundSubtractorMOG2 *pMOG2;
 
 		vector<cv::Point> _maskPts;
+		bool _useVideoRecording;
 		bool _useMask;
 		bool _showShadows;
 		int _threshold;

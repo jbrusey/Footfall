@@ -10,6 +10,7 @@ void CameraManager::setup(Camera_Configuration _cameraConfig)
 {
 	cout << "Setting Up Camera Manager";
 	_useMask = _cameraConfig.bUseMask;
+	_useVideoRecording = _cameraConfig.useVideoRecording;
 
 	// Check whether the mask should be generated
 	if (_useMask)
@@ -42,7 +43,7 @@ void CameraManager::setup(Camera_Configuration _cameraConfig)
 	// This is the ratio of the shadow detection. I.e how many times lighter the shadow needs to be to be considered a blob.
 	pMOG2->setDouble("fTau", _cameraConfig.shadowPixelRatio);
 
-	if (_cameraConfig.useVideoRecording)
+	if (_useVideoRecording)
 	{
 		cout << " - Using Video" << endl;
 		videoPlayer.load(_cameraConfig.videoFileName);
@@ -72,7 +73,7 @@ void CameraManager::setup(Camera_Configuration _cameraConfig)
 //--------------------------------------------------------------
 void CameraManager::update()
 {
-	if (_cameraConfig.useVideoRecording)
+	if (_useVideoRecording)
 	{
 		videoPlayer.update();
 
