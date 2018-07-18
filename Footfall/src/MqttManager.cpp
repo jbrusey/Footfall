@@ -33,6 +33,8 @@ void MqttManager::publish(std::string message)
 
   MQTT.publish("Street/1/pedestrians", csv, _QoS, false);
   MQTT.update();
+
+	_Sequence++;
 }
 
 void MqttManager::close()
