@@ -31,7 +31,8 @@ void MqttManager::publish(std::string message)
                    message + sep +
                    ofToString(_Sequence);
 
-  MQTT.publish("Street/" + hostname + "/pedestrians", csv, _QoS, false);
+	string MQTTTopic = "Street/" + hostname + "/pedestrians";
+  MQTT.publish(MQTTTopic, csv, _QoS, false);
   MQTT.update();
 
 	_Sequence++;
