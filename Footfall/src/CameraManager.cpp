@@ -45,7 +45,7 @@ void CameraManager::setup(Camera_Configuration _cameraConfig)
 	if (_cameraConfig.useVideoRecording)
 	{
 		cout << " - Using Video" << endl;
-		videoPlayer.load("output.mp4");
+		videoPlayer.load(_cameraConfig.videoFileName);
 		videoPlayer.setLoopState(OF_LOOP_NORMAL);
 		videoPlayer.play();
 	}

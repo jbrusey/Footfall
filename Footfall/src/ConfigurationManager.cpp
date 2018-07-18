@@ -23,6 +23,7 @@ void ConfigurationManager::loadConfiguration(string file)
 		config.useCsvLogging = configFile["Footfall"]["AppConfig"]["usecsvlogging"].asBool();
 
 		config.cameraConfig.useVideoRecording = configFile["Footfall"]["CameraConfig"]["usevideorecording"].asBool();
+		config.cameraConfig.videoFileName = configFile["Footfall"]["CameraConfig"]["videofilename"].asString();
 		config.cameraConfig.camerawidth = configFile["Footfall"]["CameraConfig"]["camerawidth"].asInt();
 		config.cameraConfig.cameraheight = configFile["Footfall"]["CameraConfig"]["cameraheight"].asInt();
 
