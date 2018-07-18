@@ -20,7 +20,7 @@ class MqttManager
 	private:
     ofxMQTT MQTT;
 		int _QoS;
-    int _Sequence;
+		string _MQTTTopic;
 };
 
 #endif /* CsvManager_h */

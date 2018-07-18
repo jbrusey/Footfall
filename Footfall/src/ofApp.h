@@ -40,4 +40,6 @@ class ofApp : public ofBaseApp
 		int peopleIn;
 		int peopleOut;
 		int _sequence;
+		string _sep;
+		string _hostname;
 };

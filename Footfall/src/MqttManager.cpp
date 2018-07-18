@@ -14,28 +14,18 @@ void MqttManager::setup(MQTT_Configuration _mqttConfig)
 
 	MQTT.update();
 
+	char hostname[HOST_NAME_MAX];
+	gethostname(hostname, HOST_NAME_MAX);
+
   _QoS = _mqttConfig.QoS;
-  _Sequence = 0;
+	_MQTTTopic = "Street/" + ofToString(hostname) + "/pedestrians";
 }
 
 void MqttManager::publish(std::string message)
 {
   MQTT.update();
-
-  char hostname[HOST_NAME_MAX];
-  gethostname(hostname, HOST_NAME_MAX);
-
-  string sep = ",";
-  string csv = ofToString(time(0)) + sep +
-                   hostname + sep +
-                   message + sep +
-                   ofToString(_Sequence);
-
-	string MQTTTopic = "Street/" + ofToString(hostname) + "/pedestrians";
-  MQTT.publish(MQTTTopic, csv, _QoS, false);
+  MQTT.publish(_MQTTTopic, message, _QoS, false);
   MQTT.update();
-
-	_Sequence++;
 }
 
 void MqttManager::close()

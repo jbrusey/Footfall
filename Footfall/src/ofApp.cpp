@@ -17,7 +17,12 @@ void ofApp::setup()
 
 	configManager.loadConfiguration("config.json");
 
+	char hostname[HOST_NAME_MAX];
+	gethostname(hostname, HOST_NAME_MAX);
+	_hostname = ofToString(hostname);
+
 	_sequence = 0;
+	_sep = ",";
 
 	_logToCsv = configManager.getConfiguration().useCsvLogging;
 	_logToServer = configManager.getConfiguration().useMQTT;
@@ -80,7 +85,12 @@ void ofApp::blobIn(int &val)
 	peopleIn += val;
 	cout << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | seq "<< _sequence << " | +" << val << " blob(s) | " << peopleIn+abs(peopleOut) << " total" << endl;
 
-	if (_logToServer) mqttManager.publish(ofToString(val));
+	string csv = ofToString(time(0)) + _sep +
+									 _hostname + _sep +
+									 ofToString(val) + _sep +
+									 ofToString(_sequence);
+
+	if (_logToServer) mqttManager.publish(csv);
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
 	if (_logToCsv) csvManager.close();
 
@@ -95,7 +105,12 @@ void ofApp::blobOut(int &val)
 	peopleOut += abs(val);
 	cout << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | seq "<< _sequence << " | " << val << " blob(s) | " << peopleIn+abs(peopleOut) << " total" << endl;
 
-	if (_logToServer) mqttManager.publish(ofToString(val));
+	string csv = ofToString(time(0)) + _sep +
+									 _hostname + _sep +
+									 ofToString(val) + _sep +
+									 ofToString(_sequence);
+
+	if (_logToServer) mqttManager.publish(csv);
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
 	if (_logToCsv) csvManager.close();
 
