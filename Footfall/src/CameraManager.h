@@ -9,16 +9,13 @@
 
 //#define USE_VIDEO
 //#define USE_WEBCAM
-#define USE_PI_CAM
+//#define USE_PI_CAM
 
 #include <stdio.h>
 #include "ofMain.h"
 #include "Configuration.h"
 #include "ofxCv.h"
-
-#ifdef USE_PI_CAM
-	#include "ofxCvPiCam.h"
-#endif
+#include "ofxCvPiCam.h"
 
 using namespace cv;
 using namespace ofxCv;
@@ -28,39 +25,33 @@ class CameraManager
 	public:
 		//! Setup
 		void setup(Camera_Configuration _cameraConfig);
-	
+
 		//! Update
 		void update();
-	
+
 		//! Draw
 		void draw();
-	
-		//! Get Image 
+
+		//! Get Image
 		Mat getImage();
-	
+
 	private:
-	
-#ifdef USE_VIDEO
-		ofVideoPlayer videoPlayer;
-#endif
-	
-#ifdef USE_WEBCAM
-		ofVideoGrabber videoGrabber;
-#endif
-	
-#ifdef USE_PI_CAM
+//#ifdef USE_WEBCAM
+//		ofVideoGrabber videoGrabber;
+//#endif
+
 		ofxCvPiCam piCamera;
-#endif
-	
+		ofVideoPlayer videoPlayer;
+
 		Mat videoMatrix;
 		Mat processedMog;
 		Mat mask;
 		Mat combinedMask;
 		Mat background;
 		Mat unprocessed_MOG;
-	
+
 		BackgroundSubtractorMOG2 *pMOG2;
-	
+
 		vector<cv::Point> _maskPts;
 		bool _useMask;
 		bool _showShadows;

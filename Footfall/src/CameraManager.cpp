@@ -42,24 +42,26 @@ void CameraManager::setup(Camera_Configuration _cameraConfig)
 	// This is the ratio of the shadow detection. I.e how many times lighter the shadow needs to be to be considered a blob.
 	pMOG2->setDouble("fTau", _cameraConfig.shadowPixelRatio);
 
-#ifdef USE_VIDEO
-	cout << " - Using Video" << endl;
-	videoPlayer.load("output.mp4");
-	videoPlayer.setLoopState(OF_LOOP_NORMAL);
-	videoPlayer.play();
-#endif
-
-#ifdef USE_WEBCAM
-	cout << " - Using Web Camera" << endl;
-	videoGrabber.setVerbose(true);
-	videoGrabber.setup(_cameraConfig.camerawidth, _cameraConfig.cameraheight);
-#endif
-
-#ifdef USE_PI_CAM
-	cout << " - Using Pi Camera" << endl;
-	piCamera.setup(_cameraConfig.camerawidth,_cameraConfig.cameraheight,true);
-	piCamera.setFlips(_cameraConfig.bFlipH,_cameraConfig.bFlipV);
-#endif
+	if (_cameraConfig.useVideoRecording)
+	{
+		cout << " - Using Video" << endl;
+		videoPlayer.load("output.mp4");
+		videoPlayer.setLoopState(OF_LOOP_NORMAL);
+		videoPlayer.play();
+	}
+	else
+	{
+		cout << " - Using Pi Camera" << endl;
+		piCamera.setup(_cameraConfig.camerawidth,_cameraConfig.cameraheight,true);
+		piCamera.setFlips(_cameraConfig.bFlipH,_cameraConfig.bFlipV);
+	}
+	/*
+	#ifdef USE_WEBCAM
+		cout << " - Using Web Camera" << endl;
+		videoGrabber.setVerbose(true);
+		videoGrabber.setup(_cameraConfig.camerawidth, _cameraConfig.cameraheight);
+	#endif
+	*/
 
 	_threshold = _cameraConfig.threshold;
 	_showShadows = _cameraConfig.bShowShadowImage;
@@ -70,28 +72,29 @@ void CameraManager::setup(Camera_Configuration _cameraConfig)
 //--------------------------------------------------------------
 void CameraManager::update()
 {
-#ifdef USE_VIDEO
-	videoPlayer.update();
-
-	if (videoPlayer.isFrameNew())
+	if (_cameraConfig.useVideoRecording)
 	{
-		copy(videoPlayer, videoMatrix);
+		videoPlayer.update();
+
+		if (videoPlayer.isFrameNew())
+		{
+			copy(videoPlayer, videoMatrix);
+		}
 	}
-#endif
-
-#ifdef USE_WEBCAM
-	videoGrabber.update();
-
-	if (videoGrabber.isFrameNew())
+	else
 	{
-		copy(videoGrabber, videoMatrix);
+		videoMatrix = piCamera.grab();
 	}
-#endif
+	/*
+	#ifdef USE_WEBCAM
+		videoGrabber.update();
 
-#ifdef USE_PI_CAM
-	videoMatrix = piCamera.grab();
-#endif
-
+		if (videoGrabber.isFrameNew())
+		{
+			copy(videoGrabber, videoMatrix);
+		}
+	#endif
+	*/
 	if (!videoMatrix.empty())
 	{
 		// Blur the original image

@@ -9,6 +9,7 @@
 
 struct Camera_Configuration
 {
+	bool useVideoRecording;
 	int camerawidth;
 	int cameraheight;
 	int history;
