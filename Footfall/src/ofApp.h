@@ -30,7 +30,7 @@ class ofApp : public ofBaseApp
 		TrackingManager trackingManager;
 		CsvManager csvManager;
 		MqttManager mqttManager;
-		
+
 
 		void blobIn(int &val);
 		void blobOut(int &val);
@@ -39,4 +39,5 @@ class ofApp : public ofBaseApp
 		bool _logToServer;
 		int peopleIn;
 		int peopleOut;
+		int _sequence;
 };
