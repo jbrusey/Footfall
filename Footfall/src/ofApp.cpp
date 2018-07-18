@@ -74,26 +74,26 @@ void ofApp::keyReleased(int key)
 //--------------------------------------------------------------
 void ofApp::blobIn(int &val)
 {
-	system("echo 1 >/sys/class/leds/led0/brightness");
+	system("sudo bash -c 'echo 1 >/sys/class/leds/led0/brightness'");
 	peopleIn += val;
-	cout << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | +" << val << " blob(s) |" (peopleIn-peopleOut) << " total" endl;
+	cout << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | +" << val << " blob(s) |" (peopleIn-peopleOut) << " total" << endl;
 
 	if (_logToServer) mqttManager.publish(ofToString(val));
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
 	if (_logToCsv) csvManager.close();
 
-	system("echo 0 >/sys/class/leds/led0/brightness");
+	system("sudo bash -c 'echo 0 >/sys/class/leds/led0/brightness'");
 }
 //--------------------------------------------------------------
 void ofApp::blobOut(int &val)
 {
-	system("echo 1 >/sys/class/leds/led0/brightness");
+	system("sudo bash -c 'echo 1 >/sys/class/leds/led0/brightness'");
 	peopleOut += abs(val);
-	cout << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | " << val << " blob(s) | " << (peopleIn-peopleOut) << " total" endl;
+	cout << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | " << val << " blob(s) | " << (peopleIn-peopleOut) << " total" << endl;
 
 	if (_logToServer) mqttManager.publish(ofToString(val));
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
 	if (_logToCsv) csvManager.close();
 
-	system("echo 0 >/sys/class/leds/led0/brightness");
+	system("sudo bash -c 'echo 0 >/sys/class/leds/led0/brightness'");
 }
