@@ -82,7 +82,7 @@ void ofApp::keyReleased(int key)
 void ofApp::blobIn(int &val)
 {
 	// Blink green LED for 1 second
-	system("sudo bash -c 'echo 1 >/sys/class/leds/led0/brightness && sleep 1 && echo 0 >/sys/class/leds/led0/brightness' & disown");
+	system("sudo bash -c 'echo 1 >/sys/class/leds/led0/brightness && sleep 1 && echo 0 >/sys/class/leds/led0/brightness' &");
 	peopleIn += val;
 	cout << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | seq "<< _sequence << " | +" << val << " blob(s) | " << peopleIn+abs(peopleOut) << " total" << endl;
 
@@ -101,7 +101,7 @@ void ofApp::blobIn(int &val)
 void ofApp::blobOut(int &val)
 {
 	// Blink green LED for 1 second
-	system("sudo bash -c 'echo 1 >/sys/class/leds/led0/brightness && sleep 1 && echo 0 >/sys/class/leds/led0/brightness' & disown");
+	system("sudo bash -c 'echo 1 >/sys/class/leds/led0/brightness && sleep 1 && echo 0 >/sys/class/leds/led0/brightness' &");
 	peopleOut += abs(val);
 	cout << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | seq "<< _sequence << " | " << val << " blob(s) | " << peopleIn+abs(peopleOut) << " total" << endl;
 
