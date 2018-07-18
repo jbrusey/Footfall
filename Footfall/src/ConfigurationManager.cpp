@@ -22,6 +22,7 @@ void ConfigurationManager::loadConfiguration(string file)
 		config.useMQTT = configFile["Footfall"]["AppConfig"]["usemqtt"].asBool();
 		config.useCsvLogging = configFile["Footfall"]["AppConfig"]["usecsvlogging"].asBool();
 
+		config.cameraConfig.useVideoRecording = configFile["Footfall"]["CameraConfig"]["usevideorecording"].asBool();
 		config.cameraConfig.camerawidth = configFile["Footfall"]["CameraConfig"]["camerawidth"].asInt();
 		config.cameraConfig.cameraheight = configFile["Footfall"]["CameraConfig"]["cameraheight"].asInt();
 
