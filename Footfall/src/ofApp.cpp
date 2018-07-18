@@ -81,7 +81,10 @@ void ofApp::keyReleased(int key)
 //--------------------------------------------------------------
 void ofApp::blobIn(int &val)
 {
-	system("sudo bash -c 'echo 1 >/sys/class/leds/led0/brightness'");
+	// Blink green LED for 1 second
+	system("sudo bash -c 'echo 1 >/sys/class/leds/led0/brightness &&
+												sleep 1 &&
+												echo 0 >/sys/class/leds/led0/brightness' & disown");
 	peopleIn += val;
 	cout << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | seq "<< _sequence << " | +" << val << " blob(s) | " << peopleIn+abs(peopleOut) << " total" << endl;
 
@@ -95,13 +98,14 @@ void ofApp::blobIn(int &val)
 	if (_logToCsv) csvManager.close();
 
 	_sequence++;
-
-	system("sudo bash -c 'echo 0 >/sys/class/leds/led0/brightness'");
 }
 //--------------------------------------------------------------
 void ofApp::blobOut(int &val)
 {
-	system("sudo bash -c 'echo 1 >/sys/class/leds/led0/brightness'");
+	// Blink green LED for 1 second
+	system("sudo bash -c 'echo 1 >/sys/class/leds/led0/brightness &&
+												sleep 1 &&
+												echo 0 >/sys/class/leds/led0/brightness' & disown");
 	peopleOut += abs(val);
 	cout << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | seq "<< _sequence << " | " << val << " blob(s) | " << peopleIn+abs(peopleOut) << " total" << endl;
 
@@ -115,6 +119,4 @@ void ofApp::blobOut(int &val)
 	if (_logToCsv) csvManager.close();
 
 	_sequence++;
-
-	system("sudo bash -c 'echo 0 >/sys/class/leds/led0/brightness'");
 }
