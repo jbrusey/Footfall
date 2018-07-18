@@ -76,7 +76,7 @@ void ofApp::blobIn(int &val)
 {
 	system("echo 1 >/sys/class/leds/led0/brightness");
 	peopleIn += val;
-	cout << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " - " << val << " Blob(s) Came In" << endl;
+	cout << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | +" << val << " blob(s) |" (peopleIn-peopleOut) << " total" endl;
 
 	if (_logToServer) mqttManager.publish(ofToString(val));
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
@@ -89,7 +89,7 @@ void ofApp::blobOut(int &val)
 {
 	system("echo 1 >/sys/class/leds/led0/brightness");
 	peopleOut += abs(val);
-	cout << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " - " << val << " Blob(s) Went Out" << endl;
+	cout << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | " << val << " blob(s) | " << (peopleIn-peopleOut) << " total" endl;
 
 	if (_logToServer) mqttManager.publish(ofToString(val));
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
