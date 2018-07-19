@@ -145,12 +145,12 @@ void CameraManager::draw()
 
 	if(_showShadows)
 	{
-		drawMat(unprocessed_MOG, videoMatrix.cols*4, videoMatrix.cols,videoMatrix.cols,videoMatrix.rows);
+		drawMat(unprocessed_MOG, videoMatrix.cols*4, videoMatrix.rows,videoMatrix.cols,videoMatrix.rows);
 		ofDrawBitmapStringHighlight("Shadows Image", ((videoMatrix.cols/2)*5)-45,videoMatrix.rows+20);
 	}
 	else
 	{
-		drawMat(background, videoMatrix.cols*4, videoMatrix.cols,videoMatrix.cols,videoMatrix.rows);
+		drawMat(background, videoMatrix.cols*4, videoMatrix.rows,videoMatrix.cols,videoMatrix.rows);
 		ofDrawBitmapStringHighlight("Background", ((videoMatrix.cols/2)*5)-45,videoMatrix.rows+20);
 	}
 	ofPopMatrix();
