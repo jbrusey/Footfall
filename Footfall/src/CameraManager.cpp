@@ -140,19 +140,19 @@ void CameraManager::draw()
 	ofSetColor(255, 255, 255);
 
 	ofFill();
-	ofDrawRectangle(0, 0, videoMatrix.cols+1,videoMatrix.rows+2);  //draws the rectangle filled in blue
-	ofDrawRectangle(videoMatrix.cols -1, 0, videoMatrix.cols+2,videoMatrix.rows+2);  //draws the rectangle filled in blue
-	ofDrawRectangle(videoMatrix.cols -1, videoMatrix.rows+29, videoMatrix.cols + 2,videoMatrix.rows + 2);  //draws the rectangle filled in blue
-	ofDrawRectangle(0, videoMatrix.rows+29,videoMatrix.cols+2,videoMatrix.rows+2);  //draws the rectangle filled in blue
+	ofDrawRectangle(0, 0, videoMatrix.cols+1,videoMatrix.rows+1);
+	ofDrawRectangle(videoMatrix.cols -1, 0, videoMatrix.cols+1,videoMatrix.rows+1);
+	ofDrawRectangle(videoMatrix.cols -1, videoMatrix.rows+29, videoMatrix.cols + 2,videoMatrix.rows + 2);
+	ofDrawRectangle(0, videoMatrix.rows+29,videoMatrix.cols+2,videoMatrix.rows+2);
 
 	drawMat(videoMatrix, 0, 0,videoMatrix.cols,videoMatrix.rows);
-	drawMat(processedMog, videoMatrix.cols, 0,videoMatrix.cols,videoMatrix.rows);
+	drawMat(background, videoMatrix.cols, 0,videoMatrix.cols,videoMatrix.rows);
 	ofDrawBitmapStringHighlight("Input Image", (videoMatrix.cols/2)-45,videoMatrix.rows+20);
-	ofDrawBitmapStringHighlight("Processed Image", ((videoMatrix.cols/2)*3)-65,videoMatrix.rows+20);
-	drawMat(unprocessed_MOG, videoMatrix.cols, videoMatrix.rows+30,videoMatrix.cols,videoMatrix.rows);
-	ofDrawBitmapStringHighlight("Shadows Image", ((videoMatrix.cols/2)*3)-45,(videoMatrix.rows*2)+50);
-	drawMat(background, 0, videoMatrix.rows+30,videoMatrix.cols,videoMatrix.rows);
-	ofDrawBitmapStringHighlight("Background", (videoMatrix.cols/2)-45,(videoMatrix.rows*2)+50);
+	ofDrawBitmapStringHighlight("Background", ((videoMatrix.cols/2)*3)-65,videoMatrix.rows+20);
+	drawMat(processedMog, videoMatrix.cols, videoMatrix.rows+30,videoMatrix.cols,videoMatrix.rows);
+	ofDrawBitmapStringHighlight("Processed Image", ((videoMatrix.cols/2)*3)-45,(videoMatrix.rows*2)+50);
+	drawMat(unprocessed_MOG, 0, videoMatrix.rows+30,videoMatrix.cols,videoMatrix.rows);
+	ofDrawBitmapStringHighlight("Shadows Image", (videoMatrix.cols/2)-45,(videoMatrix.rows*2)+50);
 	ofPopMatrix();
 }
 //--------------------------------------------------------------
