@@ -67,8 +67,8 @@ void ofApp::draw()
 	ss << " People Out: " << peopleOut;
 	ss << " Total: " << (peopleIn+abs(peopleOut));
 	ss << " FPS: " << ofGetFrameRate() << endl;
-	ofScale(0.5,0.5);
-	ofDrawBitmapStringHighlight(ss.str(),1300, 20);
+	ofScale(2,2);
+	ofDrawBitmapStringHighlight(ss.str(),500, 20);
 	ofScale(1,1);
 	ofDrawBitmapStringHighlight(_csv_history.str(),1300, 70);
 }
