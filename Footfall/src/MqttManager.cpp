@@ -33,7 +33,7 @@ void MqttManager::connect(int attempts)
 
 void MqttManager::publish(std::string message)
 {
-	MQTT.connect(_id, _username, _password);
+	//MQTT.connect(_id, _username, _password);
 	MQTT.update();
   MQTT.publish(_MQTTTopic, message, _QoS, false);
   MQTT.update();
