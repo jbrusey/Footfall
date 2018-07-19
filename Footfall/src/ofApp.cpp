@@ -67,8 +67,8 @@ void ofApp::draw()
 	ss << " People Out: " << peopleOut;
 	ss << " Total: " << (peopleIn+abs(peopleOut));
 	ss << " FPS: " << ofGetFrameRate() << endl;
-	ofDrawBitmapStringHighlight(ss.str(),7,ofGetHeight()-20);
-	ofDrawBitmapStringHighlight(_csv_history.str(),650,20);
+	ofDrawBitmapStringHighlight(ss.str(),1300, 10);
+	ofDrawBitmapStringHighlight(_csv_history.str(),1300, 40);
 }
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
