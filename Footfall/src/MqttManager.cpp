@@ -3,27 +3,36 @@
 //--------------------------------------------------------------
 void MqttManager::setup(MQTT_Configuration _mqttConfig)
 {
-	cout << "Setting Up MQTT Manager";
-
-  MQTT.begin(_mqttConfig.server, _mqttConfig.port);
-
-  if (MQTT.connect(_mqttConfig.id, _mqttConfig.username, _mqttConfig.password))
-    cout << "MQTT Connected!" << endl;
-	else
-    cout << "Couldn't connect to MQTT!" << endl;
-
-	MQTT.update();
+	cout << "Setting Up MQTT Manager" << endl;
 
 	char hostname[HOST_NAME_MAX];
 	gethostname(hostname, HOST_NAME_MAX);
 
-  _QoS = _mqttConfig.QoS;
+	_id = _mqttConfig.id;
+	_username = _mqttConfig.username;
+	_password = _mqttConfig.password;
+
+	_QoS = _mqttConfig.QoS;
 	_MQTTTopic = "Street/" + ofToString(hostname) + "/pedestrians";
+
+  MQTT.begin(_mqttConfig.server, _mqttConfig.port);
+	MqttManager.connect(3);
+	MQTT.update();
+}
+
+void MqttManager::connect(int attempts)
+{
+	while (!MQTT.Connected || attempts != 0)
+	{
+		cout << "Connecting to MQTT..." << endl;
+		MQTT.connect(_id, _username, _password);
+		attempts--;
+	}
 }
 
 void MqttManager::publish(std::string message)
 {
-  MQTT.update();
+	MqttManager.connect(3);
   MQTT.publish(_MQTTTopic, message, _QoS, false);
   MQTT.update();
 }

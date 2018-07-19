@@ -21,6 +21,9 @@ class MqttManager
     ofxMQTT MQTT;
 		int _QoS;
 		string _MQTTTopic;
+		string _id;
+		string _username;
+		string _password;
 };
 
 #endif /* CsvManager_h */
