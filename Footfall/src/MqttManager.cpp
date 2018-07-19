@@ -16,7 +16,7 @@ void MqttManager::setup(MQTT_Configuration _mqttConfig)
 	_MQTTTopic = "Street/" + ofToString(hostname) + "/pedestrians";
 
   MQTT.begin(_mqttConfig.server, _mqttConfig.port);
-	connect(3);
+	MQTT.connect(_id, _username, _password);
 	MQTT.update();
 }
 
@@ -33,7 +33,7 @@ void MqttManager::connect(int attempts)
 
 void MqttManager::publish(std::string message)
 {
-	connect(3);
+	MQTT.connect(_id, _username, _password);
   MQTT.publish(_MQTTTopic, message, _QoS, false);
   MQTT.update();
 }
