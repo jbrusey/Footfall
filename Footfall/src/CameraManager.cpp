@@ -149,10 +149,10 @@ void CameraManager::draw()
 	drawMat(background, videoMatrix.cols, 0,videoMatrix.cols,videoMatrix.rows);
 	ofDrawBitmapStringHighlight("Input Image", (videoMatrix.cols/2)-45,videoMatrix.rows+20);
 	ofDrawBitmapStringHighlight("Background", ((videoMatrix.cols/2)*3)-65,videoMatrix.rows+20);
-	drawMat(processedMog, videoMatrix.cols, videoMatrix.rows+30,videoMatrix.cols,videoMatrix.rows);
-	ofDrawBitmapStringHighlight("Processed Image", ((videoMatrix.cols/2)*3)-45,(videoMatrix.rows*2)+50);
-	drawMat(unprocessed_MOG, 0, videoMatrix.rows+30,videoMatrix.cols,videoMatrix.rows);
-	ofDrawBitmapStringHighlight("Shadows Image", (videoMatrix.cols/2)-45,(videoMatrix.rows*2)+50);
+	drawMat(unprocessed_MOG, videoMatrix.cols, videoMatrix.rows+30,videoMatrix.cols,videoMatrix.rows);
+	ofDrawBitmapStringHighlight("Shadows Image", ((videoMatrix.cols/2)*3)-45,(videoMatrix.rows*2)+50);
+	drawMat(processedMog, 0, videoMatrix.rows+30,videoMatrix.cols,videoMatrix.rows);
+	ofDrawBitmapStringHighlight("Processed Image", (videoMatrix.cols/2)-45,(videoMatrix.rows*2)+50);
 	ofPopMatrix();
 }
 //--------------------------------------------------------------
