@@ -22,7 +22,7 @@ void MqttManager::setup(MQTT_Configuration _mqttConfig)
 
 void MqttManager::connect(int attempts)
 {
-	while (!MQTT.Connected || attempts != 0)
+	while (!MQTT.connected() || attempts != 0)
 	{
 		cout << "Connecting to MQTT..." << endl;
 		MQTT.connect(_id, _username, _password);
