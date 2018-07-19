@@ -138,7 +138,7 @@ void CameraManager::draw()
 {
 	ofPushMatrix();
 	ofSetColor(255, 255, 255);
-	drawMat(videoMatrix, 0, 0,videoMatrix.cols,videoMatrix.rows);
+	drawMat(videoMatrix, 0, 0,videoMatrix.cols,videoMatrix.rows*2);
 	drawMat(processedMog, videoMatrix.cols, 0,videoMatrix.cols,videoMatrix.rows);
 	ofDrawBitmapStringHighlight("Input Image", (videoMatrix.cols/2)-45,videoMatrix.rows+20);
 	ofDrawBitmapStringHighlight("Processed Image", ((videoMatrix.cols/2)*3)-65,videoMatrix.rows+20);
