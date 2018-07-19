@@ -56,7 +56,7 @@ void ofApp::update()
 void ofApp::draw()
 {
 	ofPushMatrix();
-	ofScale(1,1);
+	ofScale(1.2,1.2);
 	cameraManager.draw();
 	trackingManager.draw();
 	ofPopMatrix();
