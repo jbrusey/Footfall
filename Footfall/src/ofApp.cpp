@@ -69,10 +69,10 @@ void ofApp::draw()
 	ss << " FPS: " << ofGetFrameRate() << endl;
 
 	ofScale(2,2);
-	ofDrawBitmapStringHighlight(ss.str(),600, 20);
+	ofDrawBitmapStringHighlight(ss.str(),650, 20);
 
 	ofScale(0.5,0.5);
-	ofDrawBitmapStringHighlight(_csv_history.str(),1300, 70);
+	ofDrawBitmapStringHighlight(_csv_history.str(),1300, 200);
 }
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
