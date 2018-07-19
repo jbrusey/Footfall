@@ -146,7 +146,6 @@ void CameraManager::draw()
 	ofDrawBitmapStringHighlight("Shadows Image", ((videoMatrix.cols/2)*5)-45,videoMatrix.rows+20);
 	drawMat(background, 0, videoMatrix.rows+40,videoMatrix.cols,videoMatrix.rows);
 	ofDrawBitmapStringHighlight("Background", ((videoMatrix.cols/2)*5)-45,(videoMatrix.rows*2)+80);
-	}
 	ofPopMatrix();
 }
 //--------------------------------------------------------------
