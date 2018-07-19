@@ -65,14 +65,14 @@ void ofApp::draw()
 	ss << "Footfall" << endl;
 	ss << "People In: " << peopleIn;
 	ss << " People Out: " << peopleOut << endl;
-	ss << " Total: " << (peopleIn+abs(peopleOut));
+	ss << "Total: " << (peopleIn+abs(peopleOut));
 	ss << " FPS: " << ofGetFrameRate() << endl;
 
-	ofScale(2.5,2.5);
-	ofDrawBitmapStringHighlight(ss.str(),450, 20);
+	ofScale(2,2);
+	ofDrawBitmapStringHighlight(ss.str(),600, 20);
 
-	ofScale(1,1);
-	ofDrawBitmapStringHighlight(_csv_history.str(),500, 70);
+	ofScale(0.5,0.5);
+	ofDrawBitmapStringHighlight(_csv_history.str(),1300, 70);
 }
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
