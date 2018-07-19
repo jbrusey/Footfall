@@ -96,6 +96,8 @@ void ofApp::blobIn(int &val)
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
 	if (_logToCsv) csvManager.close();
 
+	ofDrawBitmapStringHighlight(csv,650,20);
+
 	_sequence++;
 }
 //--------------------------------------------------------------
