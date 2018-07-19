@@ -14,6 +14,8 @@ class MqttManager
 
     void publish(std::string message);
 
+		void connect(int attempts);
+
 		//! Close the MQTT Manager
 		void close();
 
