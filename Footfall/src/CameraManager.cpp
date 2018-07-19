@@ -140,10 +140,10 @@ void CameraManager::draw()
 	ofSetColor(255, 255, 255);
 
 	ofFill();
-	ofDrawRectangle(0, 0, videoMatrix.cols+1,videoMatrix.rows+1);  //draws the rectangle filled in blue
-	ofDrawRectangle(videoMatrix.cols -1, 0, videoMatrix.cols+1,videoMatrix.rows+1);  //draws the rectangle filled in blue
-	ofDrawRectangle(videoMatrix.cols -1, videoMatrix.rows+29, videoMatrix.cols + 1,videoMatrix.rows + 1);  //draws the rectangle filled in blue
-	ofDrawRectangle(0, videoMatrix.rows+29,videoMatrix.cols+1,videoMatrix.rows+1);  //draws the rectangle filled in blue
+	ofDrawRectangle(0, 0, videoMatrix.cols+1,videoMatrix.rows+2);  //draws the rectangle filled in blue
+	ofDrawRectangle(videoMatrix.cols -1, 0, videoMatrix.cols+2,videoMatrix.rows+2);  //draws the rectangle filled in blue
+	ofDrawRectangle(videoMatrix.cols -1, videoMatrix.rows+29, videoMatrix.cols + 2,videoMatrix.rows + 2);  //draws the rectangle filled in blue
+	ofDrawRectangle(0, videoMatrix.rows+29,videoMatrix.cols+2,videoMatrix.rows+2);  //draws the rectangle filled in blue
 
 	drawMat(videoMatrix, 0, 0,videoMatrix.cols,videoMatrix.rows);
 	drawMat(processedMog, videoMatrix.cols, 0,videoMatrix.cols,videoMatrix.rows);
