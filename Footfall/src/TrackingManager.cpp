@@ -25,7 +25,7 @@ void TrackingManager::setup(Tracking_Configuration _trackingConfig)
 
 	trackingHistory.setup(_oneBlob,_twoBlob,_threeBlob,_trackingConfig.startPos.y);
 
-	centerRect = ofRectangle(0, _trackingConfig.startPos.y-(_trackingConfig.offset/2), _camerawidth, _trackingConfig.offset);
+	centerRect = ofRectangle(0, _trackingConfig.startPos.y-(_trackingConfig.offset/2), _camerawidth*2, _trackingConfig.offset);
 }
 //--------------------------------------------------------------
 void TrackingManager::update(Mat processedMat)
