@@ -30,16 +30,16 @@ void CsvManager::addRecord(string count, string timestamp)
 //--------------------------------------------------------------
 void CsvManager::saveRecords()
 {
-	logFile.createFile(ofToDataPath(_saveFolder+"/"+ofGetTimestampString("%Y-%m-%d")+".csv"));
+	//logFile.createFile(ofToDataPath(_saveFolder+"/"+ofGetTimestampString("%Y-%m-%d")+".csv"));
 
 	for (int i = 0; i < loggedData.size(); i++)
 	{
-		ofxCsvRow row;
-		row.setString(0, loggedData[i]._count);
-		row.setString(1, loggedData[i]._timestamp);
-		logFile.addRow(row);
+		//ofxCsvRow row;
+		//row.setString(0, loggedData[i]._count);
+		//row.setString(1, loggedData[i]._timestamp);
+		//logFile.addRow(row);
 	}
-	logFile.save(ofToDataPath(_saveFolder+"/"+ofGetTimestampString("%Y-%m-%d")+".csv"));
+	//logFile.save(ofToDataPath(_saveFolder+"/"+ofGetTimestampString("%Y-%m-%d")+".csv"));
 	loggedData.clear();
 }
 //--------------------------------------------------------------
