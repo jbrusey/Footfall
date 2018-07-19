@@ -169,5 +169,5 @@ void TrackingManager::draw()
 	ofSetColor(255, 255, 255);
 	ofDrawRectangle(centerRect);
 
-	trackingHistory.draw(_camerawidth,_cameraheight);
+	trackingHistory.draw(_camerawidth*2,_cameraheight*2);
 }
