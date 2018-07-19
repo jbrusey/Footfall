@@ -72,7 +72,7 @@ void ofApp::draw()
 	ofDrawBitmapStringHighlight(ss.str(),650, 20);
 
 	ofScale(0.5,0.5);
-	ofDrawBitmapStringHighlight(_csv_history.str(),1300, 100);
+	ofDrawBitmapStringHighlight(_csv_history.str(),1300, 120);
 }
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
