@@ -68,6 +68,7 @@ void ofApp::draw()
 	ss << " Total: " << (peopleIn+abs(peopleOut));
 	ss << " FPS: " << ofGetFrameRate() << endl;
 	ofDrawBitmapStringHighlight(ss.str(),7,ofGetHeight()-20);
+	ofDrawBitmapStringHighlight(_csv_history.str(),650,20);
 }
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
@@ -92,11 +93,10 @@ void ofApp::blobIn(int &val)
 									 ofToString(val) + _sep +
 									 ofToString(_sequence);
 
+	_csv_history << csv << endl << _csv_history;
 	if (_logToServer) mqttManager.publish(csv);
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
 	if (_logToCsv) csvManager.close();
-
-	ofDrawBitmapStringHighlight(csv,650,20);
 
 	_sequence++;
 }

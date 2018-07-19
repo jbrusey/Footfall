@@ -42,4 +42,5 @@ class ofApp : public ofBaseApp
 		int _sequence;
 		string _sep;
 		string _hostname;
+		stringstream _csv_history;
 };
