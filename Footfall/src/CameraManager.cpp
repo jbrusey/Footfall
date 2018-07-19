@@ -138,6 +138,13 @@ void CameraManager::draw()
 {
 	ofPushMatrix();
 	ofSetColor(255, 255, 255);
+
+	ofFill();
+	ofDrawRectangle(0, 0, videoMatrix.cols+1,videoMatrix.rows+1);  //draws the rectangle filled in blue
+	ofDrawRectangle(videoMatrix.cols -1, 0, videoMatrix.cols+1,videoMatrix.rows+1);  //draws the rectangle filled in blue
+	ofDrawRectangle(videoMatrix.cols -1, videoMatrix.rows+29, videoMatrix.cols + 1,videoMatrix.rows + 1);  //draws the rectangle filled in blue
+	ofDrawRectangle(0, videoMatrix.rows+29,videoMatrix.cols+1,videoMatrix.rows+1);  //draws the rectangle filled in blue
+
 	drawMat(videoMatrix, 0, 0,videoMatrix.cols,videoMatrix.rows);
 	drawMat(processedMog, videoMatrix.cols, 0,videoMatrix.cols,videoMatrix.rows);
 	ofDrawBitmapStringHighlight("Input Image", (videoMatrix.cols/2)-45,videoMatrix.rows+20);
