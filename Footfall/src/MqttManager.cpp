@@ -26,6 +26,7 @@ void MqttManager::connect(int attempts)
 	{
 		cout << "Connecting to MQTT..." << endl;
 		MQTT.connect(_id, _username, _password);
+		MQTT.update();
 		attempts--;
 	}
 }
