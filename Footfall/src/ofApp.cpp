@@ -93,7 +93,7 @@ void ofApp::blobIn(int &val)
 									 ofToString(val) + _sep +
 									 ofToString(_sequence);
 
-	_csv_history << csv << endl << _csv_history;
+	_csv_history << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | seq "<< _sequence << " | +" << val << " blob(s) | " << peopleIn+abs(peopleOut) << " total" << endl << _csv_history;
 	if (_logToServer) mqttManager.publish(csv);
 	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
 	if (_logToCsv) csvManager.close();
