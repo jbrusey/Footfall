@@ -12,6 +12,8 @@ class MqttManager
 		//! Setup the MQTT Manager
 		void setup(MQTT_Configuration _mqttConfig);
 
+		void update();
+
     void publish(std::string message);
 
 		void connect(int attempts);

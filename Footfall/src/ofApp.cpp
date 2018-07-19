@@ -50,6 +50,7 @@ void ofApp::update()
 {
 	cameraManager.update();
 	trackingManager.update(cameraManager.getImage());
+	if (_logToServer) mqttManager.update();
 }
 //--------------------------------------------------------------
 void ofApp::draw()
