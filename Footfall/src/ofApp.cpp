@@ -25,7 +25,7 @@ void ofApp::setup()
 
 	_logToCsv = configManager.getConfiguration().useCsvLogging;
 	_logToServer = configManager.getConfiguration().useMQTT;
-	_showUI = configManager.getConfiguration().UI_Configuration.showUI;
+	_showUI = configManager.getConfiguration().uiConfig.showUI;
 
 	cameraManager.setup(configManager.getConfiguration().cameraConfig);
 	trackingManager.setup(configManager.getConfiguration().trackingConfig);
@@ -47,7 +47,6 @@ void ofApp::update()
 {
 	cameraManager.update();
 	trackingManager.update(cameraManager.getImage());
-	if (_logToServer) mqttManager.update();
 }
 //--------------------------------------------------------------
 void ofApp::draw()
