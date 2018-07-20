@@ -68,7 +68,7 @@ void TrackingManager::update(Mat processedMat)
 
 
 
-					tif (_showHistory) rackingHistory.addNewData(blobs[i].getWidth(), true);
+					if (_showHistory) trackingHistory.addNewData(blobs[i].getWidth(), true);
 					ofNotifyEvent(blobIn, noOfBlobs, this);
 					blobs[i].kill();
 				}
