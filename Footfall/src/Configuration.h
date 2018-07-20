@@ -67,6 +67,11 @@ struct MQTT_Configuration
 	int QoS;
 };
 
+struct UI_Configuration
+{
+	bool showhistory;
+};
+
 struct Configuration
 {
 	bool useMQTT;
@@ -75,11 +80,6 @@ struct Configuration
 	Tracking_Configuration trackingConfig;
 	MQTT_Configuration mqttConfig;
 	UI_Configuration uiConfig;
-};
-
-struct UI_Configuration
-{
-	bool showhistory;
 };
 
 struct Post_Data
