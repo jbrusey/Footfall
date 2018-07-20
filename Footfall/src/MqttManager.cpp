@@ -11,8 +11,8 @@ void MqttManager::setup(MQTT_Configuration _mqttConfig)
 	_id = _mqttConfig.id;
 	_username = _mqttConfig.username;
 	_password = _mqttConfig.password;
-
 	_QoS = _mqttConfig.QoS;
+	
 	_MQTTTopic = "Street/" + ofToString(hostname) + "/pedestrians";
 
   MQTT.begin(_mqttConfig.server, _mqttConfig.port);
@@ -20,29 +20,9 @@ void MqttManager::setup(MQTT_Configuration _mqttConfig)
 	MQTT.update();
 }
 
-void MqttManager::update()
-{
-	//MQTT.update();
-}
-
-void MqttManager::connect(int attempts)
-{
-	while (!MQTT.connected() && attempts != 0)
-	{
-		cout << "Connecting to MQTT..." << endl;
-		MQTT.connect(_id, _username, _password);
-		MQTT.update();
-		attempts--;
-	}
-}
-
 void MqttManager::publish(std::string message)
 {
 	MQTT.update();
   MQTT.publish(_MQTTTopic, message, _QoS, false);
 	MQTT.update();
-}
-
-void MqttManager::close()
-{
 }

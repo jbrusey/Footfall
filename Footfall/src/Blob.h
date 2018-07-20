@@ -32,14 +32,14 @@ class Blob : public ofxCv::RectFollower
 		void draw()
 		{
 			ofPushStyle();
-			
+
 			if(_evaluating) {
 				ofSetColor(255);
 			}
 			else {
 				ofSetColor(0,255,0);
 			}
-			
+
 			ofDrawCircle(_currentPos, 5);
 			ofSetColor(255,0,0);
 			ofDrawCircle(_originPos, 5);
@@ -50,25 +50,25 @@ class Blob : public ofxCv::RectFollower
 		{
 			dead = true;
 		}
-	
+
 		//--------------------------------------------------------------
 		ofVec2f getCurrentPosition()
 		{
 			return _currentPos;
 		}
-	
+
 		//--------------------------------------------------------------
 		ofVec2f getOriginPosition()
 		{
 			return _originPos;
 		}
-	
+
 		//--------------------------------------------------------------
 		int getWidth()
 		{
 			return _blobWidth;
 		}
-	
+
 		bool _evaluating = false;
 	private:
 		ofVec2f _currentPos;

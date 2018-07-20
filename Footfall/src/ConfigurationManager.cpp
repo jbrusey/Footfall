@@ -52,6 +52,7 @@ void ConfigurationManager::loadConfiguration(string file)
 
 		//UI Configuration
 		config.uiConfig.showhistory = configFile["Footfall"]["UIConfig"]["showhistory"].asBool();
+		config.uiConfig.showUI = configFile["Footfall"]["UIConfig"]["showUI"].asBool();
 
 		// Tracking Configuration
 		config.trackingConfig.threshold = configFile["Footfall"]["TrackingConfig"]["threshold"].asInt();

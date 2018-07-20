@@ -22,18 +22,15 @@ class ofApp : public ofBaseApp
 		void draw();
 		void exit();
 
-		void keyPressed(int key);
-		void keyReleased(int key);
-
 		ConfigurationManager configManager;
 		CameraManager cameraManager;
 		TrackingManager trackingManager;
 		CsvManager csvManager;
 		MqttManager mqttManager;
 
-
 		void blobIn(int &val);
 		void blobOut(int &val);
+		void updateResults(int &val);
 
 		bool _logToCsv;
 		bool _logToServer;
@@ -43,4 +40,5 @@ class ofApp : public ofBaseApp
 		string _sep;
 		string _hostname;
 		stringstream _csv_history;
+		bool _showUI;
 };
