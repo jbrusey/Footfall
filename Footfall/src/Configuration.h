@@ -53,6 +53,8 @@ struct Tracking_Configuration
 
 	bool flipvertically;
 	int offset;
+
+	bool showHistory;
 };
 
 struct MQTT_Configuration
@@ -72,6 +74,12 @@ struct Configuration
 	Camera_Configuration cameraConfig;
 	Tracking_Configuration trackingConfig;
 	MQTT_Configuration mqttConfig;
+	UI_Configuration uiConfig;
+};
+
+struct UI_Configuration
+{
+	bool showhistory;
 };
 
 struct Post_Data

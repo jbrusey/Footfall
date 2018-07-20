@@ -51,7 +51,7 @@ void ConfigurationManager::loadConfiguration(string file)
 		config.cameraConfig.maskCoord = pts;
 
 		//UI Configuration
-		config.uiconfig.showhistory = configFile["Footfall"]["UIConfig"]["showhistory"].asBool();
+		config.uiConfig.showhistory = configFile["Footfall"]["UIConfig"]["showhistory"].asBool();
 
 		// Tracking Configuration
 		config.trackingConfig.threshold = configFile["Footfall"]["TrackingConfig"]["threshold"].asInt();
