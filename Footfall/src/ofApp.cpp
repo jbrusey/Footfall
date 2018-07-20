@@ -92,9 +92,9 @@ void ofApp::updateResults(int &val)
 	// Blink green LED for 1 second
 	system("sudo bash -c 'echo 1 >/sys/class/leds/led0/brightness && sleep 1 && echo 0 >/sys/class/leds/led0/brightness' &");
 
-	string output = ofGetTimestampString("%Y-%m-%d %H:%M:%S") + " | seq " + _sequence + " | ";
+	string output = ofGetTimestampString("%Y-%m-%d %H:%M:%S") + " | seq " + ofToString(_sequence) + " | ";
 	if (val >= 0) output += "+";
-	output += val + " blob(s) | " + peopleIn+abs(peopleOut) + " total";
+	output += ofToString(val) + " blob(s) | " + ofToString(peopleIn+abs(peopleOut)) + " total";
 
 	cout << output << endl;
 	_csv_history << output << endl;
