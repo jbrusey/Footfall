@@ -9,7 +9,6 @@
 
 #include <stdio.h>
 #include "ofMain.h"
-//#include "ofxCsv.h"
 #include "Configuration.h"
 
 class CsvManager
@@ -18,17 +17,10 @@ class CsvManager
 		//! Setup the Csv Manager
 		void setup(string saveFolder);
 
-		//! Add a new Record
-		void addRecord(string count,string timestamp);
-
-		//! Save the records
-		void saveRecords();
-
-		//! Close the Csv Manager
-		void close();
+		//! Append a message to CSV file
+		void append(string message);
 
 	private:
-		//ofxCsv logFile;
 		string _saveFolder;
 		vector<Post_Data> loggedData;
 };

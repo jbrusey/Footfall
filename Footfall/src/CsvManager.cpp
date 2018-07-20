@@ -21,46 +21,20 @@ void CsvManager::setup(string saveFolder)
 	{
 		cout << " - " << _saveFolder << " Folder Already Exists" << endl;
 	}
-
-
 }
 //--------------------------------------------------------------
-void CsvManager::addRecord(string count, string timestamp)
+void CsvManager::append(string message)
 {
 	string filepath = _saveFolder+"/"+ofGetTimestampString("%Y-%m-%d")+".csv";
 	ofFile file(filepath, ofFile::Append);
-	//file.open(filepath, ofFile::Append);
 
 	// Create a file if doesn't exist yet
-	if(!file.exists()){
+	if(!file.exists())
+	{
 		ofFile file(filepath, ofFile::WriteOnly);
 		file.create();
-		cout << "File doesn't exist - creating..." << endl;
 	}
-	else{
-		cout << "File found - " << filepath << endl;
-	}
-	file << timestamp + "," + count + "\n";
-	file.close();
-	//loggedData.push_back(Post_Data(count, timestamp));
-}
-//--------------------------------------------------------------
-void CsvManager::saveRecords()
-{
-	//logFile.createFile(ofToDataPath(_saveFolder+"/"+ofGetTimestampString("%Y-%m-%d")+".csv"));
 
-	for (int i = 0; i < loggedData.size(); i++)
-	{
-		//ofxCsvRow row;
-		//row.setString(0, loggedData[i]._count);
-		//row.setString(1, loggedData[i]._timestamp);
-		//logFile.addRow(row);
-	}
-	//logFile.save(ofToDataPath(_saveFolder+"/"+ofGetTimestampString("%Y-%m-%d")+".csv"));
-	loggedData.clear();
-}
-//--------------------------------------------------------------
-void CsvManager::close()
-{
-	saveRecords();
+	file << message + "\n";
+	file.close();
 }

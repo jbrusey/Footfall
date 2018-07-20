@@ -100,8 +100,7 @@ void ofApp::blobIn(int &val)
 
 	_csv_history << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | seq "<< _sequence << " | +" << val << " blob(s) | " << peopleIn+abs(peopleOut) << " total" << endl;
 	if (_logToServer) mqttManager.publish(csv);
-	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
-	if (_logToCsv) csvManager.close();
+	if (_logToCsv) csvManager.append(csv);
 
 	_sequence++;
 }
@@ -121,8 +120,7 @@ void ofApp::blobOut(int &val)
 
 	_csv_history << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | seq "<< _sequence << " | " << val << " blob(s) | " << peopleIn+abs(peopleOut) << " total" << endl;
 	if (_logToServer) mqttManager.publish(csv);
-	if (_logToCsv) csvManager.addRecord(ofToString(val), ofGetTimestampString("%Y-%m-%d %H:%M:%S"));
-	if (_logToCsv) csvManager.close();
+	if (_logToCsv) csvManager.append(csv);
 
 	_sequence++;
 }
