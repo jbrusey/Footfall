@@ -40,7 +40,6 @@ void ofApp::setup()
 void ofApp::exit()
 {
 	if (_logToServer) mqttManager.close();
-	if (_logToCsv) csvManager.close();
 
 	ofRemoveListener(trackingManager.blobIn, this, &ofApp::blobIn);
 	ofRemoveListener(trackingManager.blobOut, this, &ofApp::blobOut);
