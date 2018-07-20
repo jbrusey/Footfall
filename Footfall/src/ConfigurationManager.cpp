@@ -50,6 +50,9 @@ void ConfigurationManager::loadConfiguration(string file)
 		}
 		config.cameraConfig.maskCoord = pts;
 
+		//UI Configuration
+		config.uiconfig.showhistory = configFile["Footfall"]["UIConfig"]["showhistory"].asBool();
+
 		// Tracking Configuration
 		config.trackingConfig.threshold = configFile["Footfall"]["TrackingConfig"]["threshold"].asInt();
 		config.trackingConfig.minarea = configFile["Footfall"]["TrackingConfig"]["minarea"].asInt();
@@ -68,6 +71,8 @@ void ConfigurationManager::loadConfiguration(string file)
 		config.trackingConfig.minsizetwo = configFile["Footfall"]["TrackingConfig"]["minsizetwo"].asInt();
 		config.trackingConfig.minsizethree = configFile["Footfall"]["TrackingConfig"]["minsizethree"].asInt();
 		config.trackingConfig.maxdistance = configFile["Footfall"]["TrackingConfig"]["maxdistance"].asInt();
+
+		config.trackingConfig.showhistory = config.uiconfig.showhistory;
 
 		config.trackingConfig.camerawidth = config.cameraConfig.camerawidth;
 		config.trackingConfig.cameraheight = config.cameraConfig.cameraheight;

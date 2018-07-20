@@ -49,6 +49,7 @@ class TrackingManager
 		int _historyLength;
 		int _camerawidth;
 		int _cameraheight;
+		bool _showHistory;
 };
 
 #endif /* TrackingManager_h */

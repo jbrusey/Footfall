@@ -22,8 +22,9 @@ void TrackingManager::setup(Tracking_Configuration _trackingConfig)
 	_historyLength = _trackingConfig.history;
 	_camerawidth = _trackingConfig.camerawidth;
 	_cameraheight = _trackingConfig.cameraheight;
+	_showHistory = _trackingConfig.showhistory;
 
-	trackingHistory.setup(_oneBlob,_twoBlob,_threeBlob,_trackingConfig.startPos.y);
+	if (_showHistory) trackingHistory.setup(_oneBlob,_twoBlob,_threeBlob,_trackingConfig.startPos.y);
 
 	centerRect = ofRectangle(0, _trackingConfig.startPos.y-(_trackingConfig.offset/2), _camerawidth, _trackingConfig.offset);
 }
@@ -67,7 +68,7 @@ void TrackingManager::update(Mat processedMat)
 
 
 
-					trackingHistory.addNewData(blobs[i].getWidth(), true);
+					tif (_showHistory) rackingHistory.addNewData(blobs[i].getWidth(), true);
 					ofNotifyEvent(blobIn, noOfBlobs, this);
 					blobs[i].kill();
 				}
@@ -90,7 +91,7 @@ void TrackingManager::update(Mat processedMat)
 						noOfBlobs = -1;
 					}
 
-					trackingHistory.addNewData(blobs[i].getWidth(), false);
+					if (_showHistory) trackingHistory.addNewData(blobs[i].getWidth(), false);
 					ofNotifyEvent(blobOut, noOfBlobs, this);
 					blobs[i].kill();
 				}
@@ -115,7 +116,7 @@ void TrackingManager::update(Mat processedMat)
 						noOfBlobs = 1;
 					}
 
-					trackingHistory.addNewData(blobs[i].getWidth(), true);
+					if (_showHistory) trackingHistory.addNewData(blobs[i].getWidth(), true);
 					ofNotifyEvent(blobIn, noOfBlobs, this);
 					blobs[i].kill();
 				}
@@ -138,7 +139,7 @@ void TrackingManager::update(Mat processedMat)
 						noOfBlobs = -1;
 					}
 
-					trackingHistory.addNewData(blobs[i].getWidth(), false);
+					if (_showHistory) trackingHistory.addNewData(blobs[i].getWidth(), false);
 					ofNotifyEvent(blobOut, noOfBlobs, this);
 					blobs[i].kill();
 				}
@@ -169,5 +170,5 @@ void TrackingManager::draw()
 	ofSetColor(255, 255, 255);
 	ofDrawRectangle(centerRect);
 
-	trackingHistory.draw(_camerawidth,_cameraheight);
+	if (_showHistory) trackingHistory.draw(_camerawidth,_cameraheight);
 }
