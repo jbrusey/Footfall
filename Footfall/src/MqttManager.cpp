@@ -38,7 +38,7 @@ void MqttManager::connect(int attempts)
 
 void MqttManager::publish(std::string message)
 {
-
+	MQTT.update();
   MQTT.publish(_MQTTTopic, message, _QoS, false);
 	MQTT.update();
 }
