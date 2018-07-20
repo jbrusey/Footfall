@@ -72,7 +72,7 @@ void ConfigurationManager::loadConfiguration(string file)
 		config.trackingConfig.minsizethree = configFile["Footfall"]["TrackingConfig"]["minsizethree"].asInt();
 		config.trackingConfig.maxdistance = configFile["Footfall"]["TrackingConfig"]["maxdistance"].asInt();
 
-		config.trackingConfig.showhistory = config.uiconfig.showhistory;
+		config.trackingConfig.showhistory = config.uiConfig.showhistory;
 
 		config.trackingConfig.camerawidth = config.cameraConfig.camerawidth;
 		config.trackingConfig.cameraheight = config.cameraConfig.cameraheight;
