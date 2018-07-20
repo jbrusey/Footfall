@@ -51,8 +51,8 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::draw()
 {
-	//if (_showUI)
-	//{
+	if (_showUI)
+	{
 		ofPushMatrix();
 		ofScale(2,2);
 		cameraManager.draw();
@@ -71,7 +71,7 @@ void ofApp::draw()
 
 		ofScale(0.5,0.5);
 		ofDrawBitmapStringHighlight(_csv_history.str(),1300, 120);
-	//}
+	}
 }
 //--------------------------------------------------------------
 void ofApp::blobIn(int &val)
