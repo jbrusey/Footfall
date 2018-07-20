@@ -32,7 +32,7 @@ void CsvManager::addRecord(string count, string timestamp)
 
 	// Create a file if doesn't exist yet
 	if(!file.exists()){
-		file(filepath, ofFile::WriteOnly);
+		file(filepath, ofFile::Write);
 		file.create();
 	}
 	file << timestamp + "," + count + "\n";
