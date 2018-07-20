@@ -36,6 +36,7 @@ void CsvManager::addRecord(string count, string timestamp)
 		file.create();
 	}
 	file << timestamp + "," + count + "\n";
+	file.close();
 	//loggedData.push_back(Post_Data(count, timestamp));
 }
 //--------------------------------------------------------------
