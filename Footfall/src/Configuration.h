@@ -54,7 +54,7 @@ struct Tracking_Configuration
 	bool flipvertically;
 	int offset;
 
-	bool showHistory;
+	bool showhistory;
 };
 
 struct MQTT_Configuration
