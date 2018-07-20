@@ -28,8 +28,8 @@ void CsvManager::setup(string saveFolder)
 void CsvManager::addRecord(string count, string timestamp)
 {
 	string filepath = _saveFolder+"/"+ofGetTimestampString("%Y-%m-%d")+".csv";
-	ofFile file(filepath);
-	ofFile.open(filepath, ofFile::Append);
+	ofFile file(filepath, ofFile::Append);
+	//file.open(filepath, ofFile::Append);
 
 	// Create a file if doesn't exist yet
 	if(!file.exists()){
