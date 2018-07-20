@@ -95,6 +95,7 @@ void ofApp::blobIn(int &val)
 	string csv = ofToString(time(0)) + _sep +
 									 _hostname + _sep +
 									 ofToString(val) + _sep +
+									 ofToString(peopleIn+abs(peopleOut)) + _sep +
 									 ofToString(_sequence);
 
 	_csv_history << ofGetTimestampString("%Y-%m-%d %H:%M:%S") << " | seq "<< _sequence << " | +" << val << " blob(s) | " << peopleIn+abs(peopleOut) << " total" << endl;
