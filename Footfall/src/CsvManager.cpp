@@ -21,11 +21,22 @@ void CsvManager::setup(string saveFolder)
 	{
 		cout << " - " << _saveFolder << " Folder Already Exists" << endl;
 	}
+
+
 }
 //--------------------------------------------------------------
 void CsvManager::addRecord(string count, string timestamp)
 {
-	loggedData.push_back(Post_Data(count, timestamp));
+	string filepath = _saveFolder+"/"+ofGetTimestampString("%Y-%m-%d")+".csv";
+	ofFile file(filepath);
+
+	// Create a file if doesn't exist yet
+	if(!file.exists()){
+		file(filepath, ofFile::WriteOnly);
+		file.create();
+	}
+	file << timestamp + "," + count + "\n";
+	//loggedData.push_back(Post_Data(count, timestamp));
 }
 //--------------------------------------------------------------
 void CsvManager::saveRecords()
