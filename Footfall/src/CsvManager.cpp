@@ -29,11 +29,16 @@ void CsvManager::addRecord(string count, string timestamp)
 {
 	string filepath = _saveFolder+"/"+ofGetTimestampString("%Y-%m-%d")+".csv";
 	ofFile file(filepath);
+	ofFile.open(filepath, ofFile::Append);
 
 	// Create a file if doesn't exist yet
 	if(!file.exists()){
 		ofFile file(filepath, ofFile::WriteOnly);
 		file.create();
+		cout << "File doesn't exist - creating..." << endl;
+	}
+	else{
+		cout << "File found - " << filepath << endl;
 	}
 	file << timestamp + "," + count + "\n";
 	file.close();
