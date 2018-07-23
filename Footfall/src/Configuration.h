@@ -70,7 +70,6 @@ struct MQTT_Configuration
 struct UI_Configuration
 {
 	bool showUI;
-	bool vncUI;
 	bool showhistory;
 };
 
