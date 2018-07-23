@@ -26,6 +26,7 @@ void ConfigurationManager::loadConfiguration(string file)
 		config.cameraConfig.videoFileName = configFile["Footfall"]["CameraConfig"]["videofilename"].asString();
 		config.cameraConfig.camerawidth = configFile["Footfall"]["CameraConfig"]["camerawidth"].asInt();
 		config.cameraConfig.cameraheight = configFile["Footfall"]["CameraConfig"]["cameraheight"].asInt();
+		config.cameraConfig.fps = configFile["Footfall"]["CameraConfig"]["fps"].asInt();
 
 		config.cameraConfig.dilateAmount = configFile["Footfall"]["CameraConfig"]["dilate"].asInt();
 		config.cameraConfig.erodeAmount = configFile["Footfall"]["CameraConfig"]["erode"].asInt();

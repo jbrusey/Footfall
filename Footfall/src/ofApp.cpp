@@ -9,7 +9,8 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-		ofSetFrameRate(1);
+		ofSetVerticalSync(true);
+		ofSetFrameRate(configManager.getConfiguration().cameraConfig.fps);
 
 
 	cout << "-------------------- Footfall --------------------" << endl;

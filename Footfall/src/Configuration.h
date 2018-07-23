@@ -13,6 +13,7 @@ struct Camera_Configuration
 	string videoFileName;
 	int camerawidth;
 	int cameraheight;
+	int fps;
 	int history;
 	int mogThreshold;
 	int threshold;
