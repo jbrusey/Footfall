@@ -9,13 +9,13 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-		ofSetVerticalSync(true);
-		ofSetFrameRate(configManager.getConfiguration().cameraConfig.fps);
-
+	ofSetVerticalSync(true);
 
 	cout << "-------------------- Footfall --------------------" << endl;
 
 	configManager.loadConfiguration("config.json");
+
+	ofSetFrameRate(configManager.getConfiguration().cameraConfig.fps);
 
 	char hostname[HOST_NAME_MAX];
 	gethostname(hostname, HOST_NAME_MAX);
