@@ -9,13 +9,7 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-	if (configManager.getConfiguration().uiConfig.showUI){
-		ofSetVerticalSync(true);
-		ofSetFrameRate(25);
-	}
-	else{
 		ofSetFrameRate(1);
-	}
 
 
 	cout << "-------------------- Footfall --------------------" << endl;
