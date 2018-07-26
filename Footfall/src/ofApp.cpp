@@ -31,6 +31,8 @@ void ofApp::setup()
 	cameraManager.setup(configManager.getConfiguration().cameraConfig);
 	trackingManager.setup(configManager.getConfiguration().trackingConfig);
 
+	cout << "Height" << ofGetWindowHeight() << endl;
+
 	if (_logToServer) mqttManager.setup(configManager.getConfiguration().mqttConfig);
 	if (_logToCsv) csvManager.setup("csvlogs");
 
