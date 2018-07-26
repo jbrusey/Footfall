@@ -168,7 +168,7 @@ Mat CameraManager::getImage()
 void placeScreen(Mat screen, int x=0, int y=0, bool full=false, bool border=true, string caption)
 {
 	if (full)
-		drawMat(screen, 0, 0, videoMatrix.cols*2, videoMatrix.rows*2);
+		drawMat(screen, 0, 0, screen.cols*2, screen.rows*2);
 		if (caption != String.empty()) ofDrawBitmapStringHighlight(caption, 0, 0);
 	else
 	{
@@ -176,12 +176,12 @@ void placeScreen(Mat screen, int x=0, int y=0, bool full=false, bool border=true
 		int startY;
 
 		if (x==0) startX = 0;
-		else startx = videoMatrix.cols;
+		else startx = screen.cols;
 
 		if (y == 0) startY = 0;
-		else startY = videoMatrix.rows;
+		else startY = screen.rows;
 
-		drawMat( startX, startY, videoMatrix.cols, videoMatrix.rows)
+		drawMat( startX, startY, screen.cols, screen.rows)
 		if (caption != String.empty()) ofDrawBitmapStringHighlight(caption, startX, startY);
 	}
 }
