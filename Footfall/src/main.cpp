@@ -3,7 +3,7 @@
 
 //========================================================================
 int main( ){
-	ofSetupOpenGL(320*3,300,OF_FULLSCREEN);			// <-------- setup the GL context
+	ofSetupOpenGL(50,50,OF_FULLSCREEN);			// <-------- setup the GL context
 	ofSetBackgroundColor(0, 0, 0, 255);
 
 	// this kicks off the running of my app
