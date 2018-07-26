@@ -146,10 +146,10 @@ void CameraManager::draw()
 	ofDrawRectangle(0, videoMatrix.rows+29,videoMatrix.cols+2,videoMatrix.rows+2);
 
 	//drawMat(videoMatrix, 0, 0,videoMatrix.cols,videoMatrix.rows);
-	drawMat(videoMatrix, 0, 0, false, true, "Input Image");
-	drawMat(background, 1, 0, false, true, "Background");
-	drawMat(unprocessed_MOG, 0, 1, false, true, "Shadows Image");
-	drawMat(processedMog, 1, 1, false, true, "Processed Image");
+	placeScreen(videoMatrix, 0, 0, false, true, "Input Image");
+	placeScreen(background, 1, 0, false, true, "Background");
+	placeScreen(unprocessed_MOG, 0, 1, false, true, "Shadows Image");
+	placeScreen(processedMog, 1, 1, false, true, "Processed Image");
 	//drawMat(background, videoMatrix.cols, 0,videoMatrix.cols,videoMatrix.rows);
 	//ofDrawBitmapStringHighlight("Input Image", (videoMatrix.cols/2)-45,videoMatrix.rows+20);
 	//ofDrawBitmapStringHighlight("Background", ((videoMatrix.cols/2)*3)-65,videoMatrix.rows+20);
