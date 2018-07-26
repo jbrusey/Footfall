@@ -35,7 +35,7 @@ class CameraManager
 		//! Get Image
 		Mat getImage();
 
-		void placeScreen(Mat screen, int x=0, int y=0, bool full=false, bool border=true, string caption);
+		void placeScreen(Mat screen, int x=0, int y=0, bool full=false, bool border=true, string caption=null);
 
 	private:
 //#ifdef USE_WEBCAM
