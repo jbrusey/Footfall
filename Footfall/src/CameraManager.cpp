@@ -145,18 +145,43 @@ void CameraManager::draw()
 	ofDrawRectangle(videoMatrix.cols -1, videoMatrix.rows+29, videoMatrix.cols + 2,videoMatrix.rows + 2);
 	ofDrawRectangle(0, videoMatrix.rows+29,videoMatrix.cols+2,videoMatrix.rows+2);
 
-	drawMat(videoMatrix, 0, 0,videoMatrix.cols,videoMatrix.rows);
-	drawMat(background, videoMatrix.cols, 0,videoMatrix.cols,videoMatrix.rows);
-	ofDrawBitmapStringHighlight("Input Image", (videoMatrix.cols/2)-45,videoMatrix.rows+20);
-	ofDrawBitmapStringHighlight("Background", ((videoMatrix.cols/2)*3)-65,videoMatrix.rows+20);
-	drawMat(unprocessed_MOG, videoMatrix.cols, videoMatrix.rows+30,videoMatrix.cols,videoMatrix.rows);
-	ofDrawBitmapStringHighlight("Shadows Image", ((videoMatrix.cols/2)*3)-45,(videoMatrix.rows*2)+50);
-	drawMat(processedMog, 0, videoMatrix.rows+30,videoMatrix.cols,videoMatrix.rows);
-	ofDrawBitmapStringHighlight("Processed Image", (videoMatrix.cols/2)-45,(videoMatrix.rows*2)+50);
+	//drawMat(videoMatrix, 0, 0,videoMatrix.cols,videoMatrix.rows);
+	drawMat(videoMatrix, 0, 0, false, true, "Input Image");
+	drawMat(background, 1, 0, false, true, "Background");
+	drawMat(unprocessed_MOG, 0, 1, false, true, "Shadows Image");
+	drawMat(processedMog, 1, 1, false, true, "Processed Image");
+	//drawMat(background, videoMatrix.cols, 0,videoMatrix.cols,videoMatrix.rows);
+	//ofDrawBitmapStringHighlight("Input Image", (videoMatrix.cols/2)-45,videoMatrix.rows+20);
+	//ofDrawBitmapStringHighlight("Background", ((videoMatrix.cols/2)*3)-65,videoMatrix.rows+20);
+	//drawMat(unprocessed_MOG, videoMatrix.cols, videoMatrix.rows+30,videoMatrix.cols,videoMatrix.rows);
+	//ofDrawBitmapStringHighlight("Shadows Image", ((videoMatrix.cols/2)*3)-45,(videoMatrix.rows*2)+50);
+	//drawMat(processedMog, 0, videoMatrix.rows+30,videoMatrix.cols,videoMatrix.rows);
+	//ofDrawBitmapStringHighlight("Processed Image", (videoMatrix.cols/2)-45,(videoMatrix.rows*2)+50);
 	ofPopMatrix();
 }
 //--------------------------------------------------------------
 Mat CameraManager::getImage()
 {
 	return processedMog;
+}
+
+void placeScreen(Mat screen, int x=0, int y=0, bool full=false, bool border=true, string caption)
+{
+	if (full)
+		drawMat(screen, 0, 0, videoMatrix.cols*2, videoMatrix.rows*2);
+		if (caption != String.empty()) ofDrawBitmapStringHighlight(caption, 0, 0);
+	else
+	{
+		int startX;
+		int startY;
+
+		if (x==0) startX = 0;
+		else startx = videoMatrix.cols;
+
+		if (y == 0) startY = 0;
+		else startY = videoMatrix.rows;
+
+		drawMat( startX, startY, videoMatrix.cols, videoMatrix.rows)
+		if (caption != String.empty()) ofDrawBitmapStringHighlight(caption, startX, startY);
+	}
 }
