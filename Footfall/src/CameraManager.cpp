@@ -137,13 +137,13 @@ void CameraManager::update()
 void CameraManager::draw()
 {
 	ofPushMatrix();
-	ofSetColor(255, 255, 255);
+	//ofSetColor(255, 255, 255);
 
-	ofFill();
-	ofDrawRectangle(0, 0, videoMatrix.cols+1,videoMatrix.rows+1);
-	ofDrawRectangle(videoMatrix.cols -1, 0, videoMatrix.cols+1,videoMatrix.rows+1);
-	ofDrawRectangle(videoMatrix.cols -1, videoMatrix.rows+29, videoMatrix.cols + 2,videoMatrix.rows + 2);
-	ofDrawRectangle(0, videoMatrix.rows+29,videoMatrix.cols+2,videoMatrix.rows+2);
+	//ofFill();
+	//ofDrawRectangle(0, 0, videoMatrix.cols+1,videoMatrix.rows+1);
+	//ofDrawRectangle(videoMatrix.cols -1, 0, videoMatrix.cols+1,videoMatrix.rows+1);
+	//ofDrawRectangle(videoMatrix.cols -1, videoMatrix.rows+29, videoMatrix.cols + 2,videoMatrix.rows + 2);
+	//ofDrawRectangle(0, videoMatrix.rows+29,videoMatrix.cols+2,videoMatrix.rows+2);
 
 	//drawMat(videoMatrix, 0, 0,videoMatrix.cols,videoMatrix.rows);
 	placeScreen(videoMatrix, "Input Image", 0, 0, false, true);
