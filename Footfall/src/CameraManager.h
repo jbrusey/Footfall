@@ -35,7 +35,7 @@ class CameraManager
 		//! Get Image
 		Mat getImage();
 
-		void placeScreen(Mat screen, int x=0, int y=0, bool full=false, bool border=true, std::string caption= std::string());
+		void placeScreen(Mat screen, int x=0, int y=0, bool full=false, bool border=true, const std::string& caption= std::string());
 
 	private:
 //#ifdef USE_WEBCAM
