@@ -181,7 +181,7 @@ void placeScreen(Mat screen, int x=0, int y=0, bool full=false, bool border=true
 		if (y == 0) startY = 0;
 		else startY = screen.rows;
 
-		drawMat( startX, startY, screen.cols, screen.rows)
+		drawMat(screen, startX, startY, screen.cols, screen.rows)
 		if (caption != String.empty()) ofDrawBitmapStringHighlight(caption, startX, startY);
 	}
 }
