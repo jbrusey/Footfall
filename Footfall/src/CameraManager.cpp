@@ -165,7 +165,7 @@ Mat CameraManager::getImage()
 	return processedMog;
 }
 
-void placeScreen(Mat screen, std::string caption, int x=0, int y=0, bool full=false, bool border=true)
+void placeScreen(Mat screen, const std::string& caption, int x=0, int y=0, bool full=false, bool border=true)
 {
 	if (full)
 		drawMat(screen, 0, 0, screen.cols*2, screen.rows*2);
