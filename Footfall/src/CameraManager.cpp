@@ -192,7 +192,7 @@ void CameraManager::placeScreen(Mat screen, std::string caption, int x, int y, b
 		}
 		else {
 			startY = screen.rows;
-			sizeY = screen.cols*2
+			sizeY = screen.cols*2;
 		}
 
 		drawMat(screen, startX, startY, sizeX, sizeY);
