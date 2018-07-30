@@ -182,6 +182,6 @@ void CameraManager::placeScreen(Mat screen, std::string caption, int x, int y, b
 		else startY = screen.rows;
 
 		drawMat(screen, startX, startY, screen.cols, screen.rows);
-		if (caption != "") ofDrawBitmapStringHighlight(caption, startX, startY);
+		//if (caption != "") ofDrawBitmapStringHighlight(caption, startX, startY);
 	}
 }
