@@ -146,10 +146,10 @@ void CameraManager::draw()
 	ofDrawRectangle(0, videoMatrix.rows+29,videoMatrix.cols+2,videoMatrix.rows+2);
 
 	//drawMat(videoMatrix, 0, 0,videoMatrix.cols,videoMatrix.rows);
-	placeScreen(videoMatrix, "Input Image", 0, 0, false, true);
-	placeScreen(background, "Background", 1, 0, false, true);
-	placeScreen(unprocessed_MOG, "Shadows Image", 0, 1, false, true);
-	placeScreen(processedMog, "Processed Image", 1, 1, false, true);
+	placeScreen(videoMatrix, 0, 0, false, true);
+	placeScreen(background, 1, 0, false, true);
+	placeScreen(unprocessed_MOG,  0, 1, false, true);
+	placeScreen(processedMog, 1, 1, false, true);
 	//drawMat(background, videoMatrix.cols, 0,videoMatrix.cols,videoMatrix.rows);
 	//ofDrawBitmapStringHighlight("Input Image", (videoMatrix.cols/2)-45,videoMatrix.rows+20);
 	//ofDrawBitmapStringHighlight("Background", ((videoMatrix.cols/2)*3)-65,videoMatrix.rows+20);
@@ -165,8 +165,9 @@ Mat CameraManager::getImage()
 	return processedMog;
 }
 
-void placeScreen(Mat screen, const std::string& caption, int x=0, int y=0, bool full=false, bool border=true)
+void placeScreen(Mat screen, int x=0, int y=0, bool full=false, bool border=true)
 {
+	string caption = "Test";
 	if (full)
 		drawMat(screen, 0, 0, screen.cols*2, screen.rows*2);
 		if (caption != "") ofDrawBitmapStringHighlight(caption, 0, 0);
