@@ -165,7 +165,7 @@ Mat CameraManager::getImage()
 	return processedMog;
 }
 
-void placeScreen(Mat screen, int x=0, int y=0, bool full=false, bool border=true)
+void placeScreen(Mat screen, int x, int y, bool full, bool border)
 {
 	string caption = "Test";
 	if (full)
