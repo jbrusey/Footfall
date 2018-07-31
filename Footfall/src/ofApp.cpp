@@ -58,7 +58,7 @@ void ofApp::draw()
 	if (_showUI)
 	{
 		ofPushMatrix();
-		ofScale(4);
+		ofScale(2);
 		cameraManager.draw();
 		trackingManager.draw();
 		ofPopMatrix();
