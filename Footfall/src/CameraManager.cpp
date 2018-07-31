@@ -170,7 +170,7 @@ void CameraManager::placeScreen(Mat screen, std::string caption, int x, int y, b
 	if (full)
 	{
 		drawMat(screen, 0, 0, screen.cols*2, screen.rows*2);
-		if (caption != "") ofDrawBitmapStringHighlight(caption, 10, 20);
+		if (caption != "") ofDrawBitmapStringHighlight(caption, 7, 17);
 	}
 	else
 	{
@@ -184,6 +184,6 @@ void CameraManager::placeScreen(Mat screen, std::string caption, int x, int y, b
 		else startY = screen.rows;
 
 		drawMat(screen, startX, startY, screen.cols, screen.rows);
-		if (caption != "") ofDrawBitmapStringHighlight(caption, startX+10, startY+20);
+		if (caption != "") ofDrawBitmapStringHighlight(caption, startX+7, startY+17);
 	}
 }
