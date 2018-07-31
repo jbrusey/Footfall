@@ -148,7 +148,7 @@ void CameraManager::draw()
 	//drawMat(videoMatrix, 0, 0,videoMatrix.cols,videoMatrix.rows);
 	//placeScreen(videoMatrix, "Input Image", 0, 0, false, true);
 	//placeScreen(background, "Background", 1, 0, false, true);
-	placeScreen(unprocessed_MOG, "Shadows Image", 0, 0, true, true);
+	placeScreen(unprocessed_MOG, "Shadows Image", 0, 0, false, true);
 	//placeScreen(processedMog, "Processed Image", 1, 1, false, true);
 	//drawMat(background, videoMatrix.cols, 0,videoMatrix.cols,videoMatrix.rows);
 	//ofDrawBitmapStringHighlight("Input Image", (videoMatrix.cols/2)-45,videoMatrix.rows+20);
