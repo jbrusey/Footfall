@@ -169,8 +169,10 @@ void CameraManager::placeScreen(Mat screen, std::string caption, int x, int y, b
 {
 	cout << "Place screen started" << endl;
 	if (full)
+	{
 		drawMat(screen, 0, 0, screen.cols*2, screen.rows*2);
 		if (caption != "") ofDrawBitmapStringHighlight(caption, 0, 0);
+	}
 	else
 	{
 		int startX;
