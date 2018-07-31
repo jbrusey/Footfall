@@ -147,9 +147,9 @@ void CameraManager::draw()
 
 	//drawMat(videoMatrix, 0, 0,videoMatrix.cols,videoMatrix.rows);
 	placeScreen(videoMatrix, "Input Image", 0, 0, false, true);
-	//placeScreen(background, "Background", 1, 0, false, true);
-	//placeScreen(unprocessed_MOG, "Shadows Image", 0, 1, false, true);
-	//placeScreen(processedMog, "Processed Image", 1, 1, false, true);
+	placeScreen(background, "Background", 1, 0, false, true);
+	placeScreen(unprocessed_MOG, "Shadows Image", 0, 1, false, true);
+	placeScreen(processedMog, "Processed Image", 1, 1, false, true);
 	//drawMat(background, videoMatrix.cols, 0,videoMatrix.cols,videoMatrix.rows);
 	//ofDrawBitmapStringHighlight("Input Image", (videoMatrix.cols/2)-45,videoMatrix.rows+20);
 	//ofDrawBitmapStringHighlight("Background", ((videoMatrix.cols/2)*3)-65,videoMatrix.rows+20);
@@ -167,7 +167,6 @@ Mat CameraManager::getImage()
 
 void CameraManager::placeScreen(Mat screen, std::string caption, int x, int y, bool full, bool border)
 {
-	cout << "Place screen started" << endl;
 	if (full)
 	{
 		drawMat(screen, 0, 0, screen.cols*2, screen.rows*2);
@@ -183,7 +182,6 @@ void CameraManager::placeScreen(Mat screen, std::string caption, int x, int y, b
 		if (x==0) {
 			startX = 0;
 			sizeX = screen.cols;
-			cout << "X set to 0" << endl;
 		}
 		else {
 			startX = screen.cols;
@@ -191,7 +189,6 @@ void CameraManager::placeScreen(Mat screen, std::string caption, int x, int y, b
 		}
 
 		if (y == 0) {
-			cout << "Y set to 0" << endl;
 			startY = 0;
 			sizeY = screen.rows;
 		}
@@ -201,7 +198,6 @@ void CameraManager::placeScreen(Mat screen, std::string caption, int x, int y, b
 		}
 
 		drawMat(screen, startX, startY, sizeX, sizeY);
-		cout << "Screen placed" << endl;
-		//if (caption != "") ofDrawBitmapStringHighlight(caption, startX, startY);
+		if (caption != "") ofDrawBitmapStringHighlight(caption, startX, startY);
 	}
 }
