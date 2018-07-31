@@ -31,8 +31,7 @@ void ofApp::setup()
 	cameraManager.setup(configManager.getConfiguration().cameraConfig);
 	trackingManager.setup(configManager.getConfiguration().trackingConfig);
 
-	cout << "Height " << ofGetWindowHeight() << endl;
-	cout << "Width: " << ofGetWindowWidth() << endl;
+	_scale = ofGetWindowHeight() / configManager.getConfiguration().cameraConfig.cameraheight;
 
 	if (_logToServer) mqttManager.setup(configManager.getConfiguration().mqttConfig);
 	if (_logToCsv) csvManager.setup("csvlogs");
@@ -58,7 +57,7 @@ void ofApp::draw()
 	if (_showUI)
 	{
 		ofPushMatrix();
-		ofScale(2);
+		ofScale(_scale);
 		cameraManager.draw();
 		trackingManager.draw();
 		ofPopMatrix();

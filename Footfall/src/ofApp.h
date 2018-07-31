@@ -41,4 +41,5 @@ class ofApp : public ofBaseApp
 		string _hostname;
 		stringstream _csv_history;
 		bool _showUI;
+		float _scale;
 };
