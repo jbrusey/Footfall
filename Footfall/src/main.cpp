@@ -3,7 +3,7 @@
 
 //========================================================================
 int main( ){
-	ofHideCursor();
+	//ofHideCursor();
 	ofSetupOpenGL(1,1,OF_FULLSCREEN);			// <-------- setup the GL context
 	ofSetBackgroundColor(0, 0, 0, 255);
 
