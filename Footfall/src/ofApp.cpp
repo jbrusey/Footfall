@@ -32,6 +32,7 @@ void ofApp::setup()
 	trackingManager.setup(configManager.getConfiguration().trackingConfig);
 
 	_scale = ofGetWindowHeight() / configManager.getConfiguration().cameraConfig.cameraheight;
+	_camerawidth = configManager.getConfiguration().cameraConfig.camerawidth;
 
 	if (_logToServer) mqttManager.setup(configManager.getConfiguration().mqttConfig);
 	if (_logToCsv) csvManager.setup("csvlogs");
