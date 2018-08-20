@@ -42,5 +42,5 @@ class ofApp : public ofBaseApp
 		stringstream _csv_history;
 		bool _showUI;
 		float _scale;
-		int camerawidth;
+		int _camerawidth;
 };
