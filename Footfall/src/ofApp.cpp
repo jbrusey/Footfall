@@ -70,10 +70,10 @@ void ofApp::draw()
 		ss << " FPS: " << ofGetFrameRate() << endl;
 
 		ofScale(2);
-		ofDrawBitmapStringHighlight(ss.str(),650, 20);
+		ofDrawBitmapStringHighlight(ss.str(),(camerawidth+10)/2, 20);
 
 		ofScale(0.5);
-		ofDrawBitmapStringHighlight(_csv_history.str(),1300, 120);
+		ofDrawBitmapStringHighlight(_csv_history.str(),camerawidth+10, 120);
 	}
 }
 //--------------------------------------------------------------
